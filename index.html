@@ -1,0 +1,3101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PhD Research Navigator 2022–2025 | Parallel & Distributed Systems</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Syne:wght@400;600;700;800&family=Syne+Mono&display=swap');
+
+  :root {
+    --bg: #f4f6fb;
+    --surface: #ffffff;
+    --surface2: #eef1f8;
+    --border: #d4dae8;
+    --accent-blue: #1a6fd4;
+    --accent-cyan: #0097a7;
+    --accent-amber: #c07a00;
+    --accent-red: #d63b57;
+    --accent-green: #1e8c3a;
+    --accent-purple: #7c4dcc;
+    --text-primary: #1a1e2e;
+    --text-secondary: #4a5270;
+    --text-dim: #8893ab;
+    --tag-sat: #fdf0f0;
+    --tag-sat-border: #d63b57;
+    --tag-emerging: #f0faf3;
+    --tag-emerging-border: #1e8c3a;
+    --tag-industry: #f0f6ff;
+    --tag-industry-border: #1a6fd4;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text-primary);
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 13px;
+    line-height: 1.7;
+    min-height: 100vh;
+  }
+
+  /* HEADER */
+  .header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(244,246,251,0.97);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+    padding: 0 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 56px;
+  }
+
+  .header-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1rem;
+    color: var(--accent-cyan);
+    letter-spacing: -0.02em;
+  }
+
+  .header-meta {
+    font-size: 11px;
+    color: var(--text-dim);
+  }
+
+  /* NAV TABS */
+  .nav-tabs {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+    border-bottom: 1px solid var(--border);
+    background: var(--surface);
+    padding: 0 1rem;
+  }
+  .nav-tabs::-webkit-scrollbar { display: none; }
+
+  .nav-tab {
+    flex-shrink: 0;
+    padding: 10px 16px;
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    transition: all 0.15s;
+    white-space: nowrap;
+    background: none;
+    border-left: none;
+    border-right: none;
+    border-top: none;
+  }
+  .nav-tab:hover { color: var(--text-secondary); }
+  .nav-tab.active {
+    color: var(--accent-cyan);
+    border-bottom-color: var(--accent-cyan);
+  }
+
+  /* SECTIONS */
+  .section {
+    display: none;
+    padding: 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+  }
+  .section.active { display: block; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+    margin-bottom: 2rem;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .section-id {
+    font-family: 'Syne Mono', monospace;
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--border);
+    line-height: 1;
+  }
+
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 1.4rem;
+    color: var(--text-primary);
+    line-height: 1.2;
+  }
+
+  .section-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    margin-left: auto;
+    flex-shrink: 0;
+  }
+  .badge-saturated { background: var(--tag-sat); border: 1px solid var(--tag-sat-border); color: var(--accent-red); }
+  .badge-emerging { background: var(--tag-emerging); border: 1px solid var(--tag-emerging-border); color: var(--accent-green); }
+  .badge-industry { background: var(--tag-industry); border: 1px solid var(--tag-industry-border); color: var(--accent-blue); }
+
+  /* SUBAREA GRID */
+  .subareas-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(440px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+  }
+
+  .subarea-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .subarea-card:hover { border-color: var(--text-dim); }
+
+  .subarea-header {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 16px 10px;
+    border-bottom: 1px solid var(--border);
+    cursor: pointer;
+  }
+
+  .subarea-num {
+    font-family: 'Syne Mono', monospace;
+    font-size: 11px;
+    color: var(--text-dim);
+    min-width: 24px;
+  }
+
+  .subarea-name {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: var(--accent-cyan);
+    flex: 1;
+  }
+
+  .toggle-icon {
+    color: var(--text-dim);
+    font-size: 14px;
+    transition: transform 0.2s;
+    flex-shrink: 0;
+  }
+  .subarea-card.expanded .toggle-icon { transform: rotate(90deg); }
+
+  .subarea-body {
+    display: none;
+    padding: 14px 16px;
+  }
+  .subarea-card.expanded .subarea-body { display: block; }
+
+  .subarea-desc {
+    color: var(--text-secondary);
+    font-size: 12px;
+    margin-bottom: 10px;
+    line-height: 1.65;
+  }
+
+  .problem-tag {
+    display: inline-block;
+    background: #fff8ec;
+    border: 1px solid #e8c070;
+    color: var(--accent-amber);
+    font-size: 10px;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-bottom: 12px;
+  }
+
+  .papers-label {
+    font-size: 10px;
+    color: var(--text-dim);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .papers-label::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .paper-item {
+    border-left: 2px solid var(--border);
+    padding: 6px 0 6px 12px;
+    margin-bottom: 8px;
+    transition: border-color 0.15s;
+  }
+  .paper-item:hover { border-left-color: var(--accent-blue); }
+  .paper-item:last-child { margin-bottom: 0; }
+
+  .paper-title {
+    color: var(--text-primary);
+    font-size: 11.5px;
+    line-height: 1.5;
+    margin-bottom: 3px;
+    font-weight: 400;
+  }
+
+  .paper-meta {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .conf-badge {
+    font-size: 10px;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-weight: 600;
+  }
+  .conf-osdi { background: #ddeeff; color: var(--accent-blue); }
+  .conf-sosp { background: #d6f5f2; color: var(--accent-cyan); }
+  .conf-nsdi { background: #ede8fa; color: var(--accent-purple); }
+  .conf-mlsys { background: #d8f5e0; color: var(--accent-green); }
+  .conf-sigmod { background: #fef3d8; color: var(--accent-amber); }
+  .conf-vldb { background: #fef3d8; color: var(--accent-amber); }
+  .conf-eurosys { background: #ddeeff; color: var(--accent-blue); }
+  .conf-asplos { background: #d6f5f2; color: var(--accent-cyan); }
+  .conf-neurips { background: #ede8fa; color: var(--accent-purple); }
+  .conf-icml { background: #ede8fa; color: var(--accent-purple); }
+  .conf-iclr { background: #ede8fa; color: var(--accent-purple); }
+  .conf-sc { background: #fde8ec; color: var(--accent-red); }
+  .conf-hpca { background: #fde8ec; color: var(--accent-red); }
+  .conf-atc { background: #ddeeff; color: var(--accent-blue); }
+  .conf-arxiv { background: #eeeff2; color: var(--text-secondary); }
+  .conf-fast { background: #d8f5e0; color: var(--accent-green); }
+  .conf-sigcomm { background: #d6f5f2; color: var(--accent-cyan); }
+  .conf-ppopp { background: #fde8ec; color: var(--accent-red); }
+
+  .paper-year {
+    font-size: 10px;
+    color: var(--text-dim);
+  }
+
+  .paper-summary {
+    font-size: 11px;
+    color: var(--text-dim);
+    margin-top: 3px;
+    line-height: 1.5;
+    font-style: italic;
+  }
+
+  /* BOTTOM INFO GRID */
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 1rem;
+    margin-top: 1.5rem;
+  }
+
+  .info-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 16px;
+  }
+
+  .info-card-title {
+    font-size: 10px;
+    color: var(--text-dim);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 8px;
+  }
+
+  .info-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 6px;
+    margin-bottom: 5px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .info-dot {
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+
+  /* RESEARCH MAP */
+  .map-container {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    overflow: auto;
+  }
+
+  .map-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1rem;
+    min-width: 800px;
+  }
+
+  .map-node {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 12px;
+    text-align: center;
+    cursor: default;
+    transition: transform 0.2s, border-color 0.2s;
+    position: relative;
+  }
+  .map-node:hover { transform: translateY(-2px); border-color: var(--text-dim); }
+
+  .map-node-id {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800;
+    font-size: 1.2rem;
+    color: var(--accent-cyan);
+    display: block;
+    margin-bottom: 4px;
+  }
+
+  .map-node-name {
+    font-size: 10px;
+    color: var(--text-secondary);
+    line-height: 1.4;
+  }
+
+  .map-node.sat { border-color: var(--tag-sat-border); }
+  .map-node.emerging { border-color: var(--tag-emerging-border); }
+  .map-node.industry { border-color: var(--tag-industry-border); }
+  .map-node.hot { border-color: var(--accent-amber); }
+
+  .map-legend {
+    display: flex;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 1.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--border);
+  }
+
+  .legend-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 11px;
+    color: var(--text-secondary);
+  }
+
+  .legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 1px;
+    border: 1px solid;
+  }
+
+  /* GAP TABLE */
+  .gap-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+    margin-bottom: 1.5rem;
+  }
+
+  .gap-table th {
+    background: var(--surface2);
+    color: var(--text-dim);
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    padding: 10px 12px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+
+  .gap-table td {
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    color: var(--text-secondary);
+    vertical-align: top;
+  }
+
+  .gap-table tr:hover td { background: var(--surface2); }
+
+  .gap-area {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    color: var(--text-primary);
+    font-size: 12px;
+  }
+
+  .status-pill {
+    display: inline-block;
+    padding: 2px 8px;
+    border-radius: 2px;
+    font-size: 10px;
+    font-weight: 600;
+  }
+  .s-sat { background: var(--tag-sat); border: 1px solid var(--tag-sat-border); color: var(--accent-red); }
+  .s-hot { background: #fff8ec; border: 1px solid var(--accent-amber); color: var(--accent-amber); }
+  .s-emerge { background: var(--tag-emerging); border: 1px solid var(--tag-emerging-border); color: var(--accent-green); }
+  .s-ind { background: var(--tag-industry); border: 1px solid var(--tag-industry-border); color: var(--accent-blue); }
+
+  /* SPECIAL BOX */
+  .callout {
+    border-left: 3px solid var(--accent-amber);
+    background: #fffbf0;
+    padding: 14px 16px;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 1.5rem;
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.7;
+  }
+  .callout strong { color: var(--accent-amber); }
+
+  .callout-cyan {
+    border-left-color: var(--accent-cyan);
+    background: #f0fafb;
+  }
+  .callout-cyan strong { color: var(--accent-cyan); }
+
+  .callout-green {
+    border-left-color: var(--accent-green);
+    background: #f2faf5;
+  }
+  .callout-green strong { color: var(--accent-green); }
+
+  /* READING ROADMAP */
+  .roadmap {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .roadmap-step {
+    display: flex;
+    gap: 1rem;
+    position: relative;
+  }
+
+  .roadmap-step::before {
+    content: '';
+    position: absolute;
+    left: 15px;
+    top: 30px;
+    bottom: -12px;
+    width: 1px;
+    background: var(--border);
+  }
+  .roadmap-step:last-child::before { display: none; }
+
+  .step-num {
+    width: 30px;
+    height: 30px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Syne', sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    color: var(--accent-cyan);
+    flex-shrink: 0;
+    position: relative;
+    z-index: 1;
+  }
+
+  .step-content {
+    flex: 1;
+    padding-bottom: 1.5rem;
+  }
+
+  .step-title {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin-bottom: 4px;
+  }
+
+  .step-desc {
+    font-size: 12px;
+    color: var(--text-secondary);
+    line-height: 1.65;
+  }
+
+  .step-papers {
+    margin-top: 6px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+  }
+
+  .step-paper-chip {
+    font-size: 10px;
+    padding: 2px 8px;
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 2px;
+    color: var(--text-secondary);
+  }
+
+  /* FOOTER */
+  .doc-footer {
+    text-align: center;
+    padding: 2rem;
+    color: var(--text-dim);
+    font-size: 11px;
+    border-top: 1px solid var(--border);
+    margin-top: 3rem;
+  }
+
+  /* UTILITY */
+  h3 {
+    font-family: 'Syne', sans-serif;
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--text-primary);
+    margin: 1.5rem 0 0.75rem;
+  }
+
+  .section-divider {
+    border: none;
+    border-top: 1px solid var(--border);
+    margin: 1.5rem 0;
+  }
+
+  @media (max-width: 768px) {
+    .subareas-grid { grid-template-columns: 1fr; }
+    .map-grid { grid-template-columns: repeat(2, 1fr); }
+    .section { padding: 1rem; }
+    .header { padding: 0 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-title">⬡ PhD Research Navigator // Parallel &amp; Distributed Systems</div>
+  <div class="header-meta">2022–2025 · Top Venues Only · v1.0</div>
+</header>
+
+<nav class="nav-tabs">
+  <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+  <button class="nav-tab" onclick="showSection('A')">A. Federated Learning</button>
+  <button class="nav-tab" onclick="showSection('B')">B. Parallel Computing</button>
+  <button class="nav-tab" onclick="showSection('C')">C. Distributed Systems</button>
+  <button class="nav-tab" onclick="showSection('D')">D. Blockchain/Web3</button>
+  <button class="nav-tab" onclick="showSection('E')">E. Edge Computing</button>
+  <button class="nav-tab" onclick="showSection('F')">F. Hardware Acceleration</button>
+  <button class="nav-tab" onclick="showSection('G')">G. Crypto Acceleration</button>
+  <button class="nav-tab" onclick="showSection('H')">H. RL/DL Parallelism</button>
+  <button class="nav-tab" onclick="showSection('I')">I. ML for Systems</button>
+  <button class="nav-tab" onclick="showSection('J')">J. Systems for ML</button>
+  <button class="nav-tab" onclick="showSection('K')">K. Privacy &amp; Security</button>
+  <button class="nav-tab" onclick="showSection('L')">L. Emerging Areas</button>
+  <button class="nav-tab" onclick="showSection('map')">Research Map</button>
+  <button class="nav-tab" onclick="showSection('roadmap')">Reading Roadmap</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════ OVERVIEW -->
+<section id="overview" class="section active">
+  <div class="section-header">
+    <div class="section-id">00</div>
+    <div>
+      <div class="section-title">Landscape Overview</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Top venues · 2022–2025 · 12 Domains · ~120 Sub-areas</div>
+    </div>
+  </div>
+
+  <div class="callout callout-cyan">
+    <strong>Purpose:</strong> This navigator maps the entire research landscape across 12 high-level domains relevant to a PhD in parallel computing, distributed systems, and ML systems. Each tab covers a domain with fine-grained sub-areas, representative papers from top venues (OSDI, SOSP, NSDI, VLDB, SIGMOD, NeurIPS, ICML, MLSys, SC, EuroSys, ASPLOS, HPCA), open problems, benchmarks, and frameworks. Use the <strong>Research Map</strong> tab for cross-domain connections and the <strong>Reading Roadmap</strong> for a suggested reading order.
+  </div>
+
+  <table class="gap-table">
+    <thead>
+      <tr>
+        <th>Domain</th>
+        <th>Status</th>
+        <th>Key Trend 2024–25</th>
+        <th>Best Venue</th>
+        <th>Open Problem Score</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="gap-area">A. Federated Learning</td>
+        <td><span class="status-pill s-hot">⚡ HOT</span></td>
+        <td>Personalized FL + LLM fine-tuning without raw data</td>
+        <td>NeurIPS, ICML, MLSys</td>
+        <td>★★★★☆</td>
+      </tr>
+      <tr>
+        <td class="gap-area">B. Parallel Computing</td>
+        <td><span class="status-pill s-sat">◼ Saturated</span></td>
+        <td>Compiler-level auto-parallelism for ML workloads</td>
+        <td>SC, PPoPP, ASPLOS</td>
+        <td>★★★☆☆</td>
+      </tr>
+      <tr>
+        <td class="gap-area">C. Distributed Systems</td>
+        <td><span class="status-pill s-sat">◼ Saturated</span></td>
+        <td>Disaggregated memory, serverless consensus</td>
+        <td>OSDI, SOSP, NSDI</td>
+        <td>★★★☆☆</td>
+      </tr>
+      <tr>
+        <td class="gap-area">D. Blockchain / Web3</td>
+        <td><span class="status-pill s-emerge">▲ Emerging</span></td>
+        <td>ZK-rollups, DAG-based BFT, on-chain ML</td>
+        <td>OSDI, NSDI, CCS</td>
+        <td>★★★★☆</td>
+      </tr>
+      <tr>
+        <td class="gap-area">E. Edge Computing</td>
+        <td><span class="status-pill s-hot">⚡ HOT</span></td>
+        <td>Hierarchical FL + DNN inference at edge</td>
+        <td>NSDI, MobiSys, EuroSys</td>
+        <td>★★★★☆</td>
+      </tr>
+      <tr>
+        <td class="gap-area">F. Hardware Acceleration</td>
+        <td><span class="status-pill s-ind">■ Industry</span></td>
+        <td>Chiplet-based heterogeneous accelerators for LLMs</td>
+        <td>ISCA, HPCA, ASPLOS</td>
+        <td>★★★☆☆</td>
+      </tr>
+      <tr>
+        <td class="gap-area">G. Crypto Acceleration</td>
+        <td><span class="status-pill s-emerge">▲ Emerging</span></td>
+        <td>GPU/FPGA acceleration of FHE, ZKP, MPC</td>
+        <td>IEEE S&amp;P, CCS, USENIX</td>
+        <td>★★★★★</td>
+      </tr>
+      <tr>
+        <td class="gap-area">H. RL/DL Parallelism</td>
+        <td><span class="status-pill s-hot">⚡ HOT</span></td>
+        <td>Distributed RLHF, multi-GPU PPO pipelines</td>
+        <td>MLSys, ICML, NeurIPS</td>
+        <td>★★★★★</td>
+      </tr>
+      <tr>
+        <td class="gap-area">I. ML for Systems</td>
+        <td><span class="status-pill s-hot">⚡ HOT</span></td>
+        <td>LLM-assisted DB tuning, learned concurrency control</td>
+        <td>SIGMOD, VLDB, OSDI</td>
+        <td>★★★★★</td>
+      </tr>
+      <tr>
+        <td class="gap-area">J. Systems for ML</td>
+        <td><span class="status-pill s-ind">■ Industry</span></td>
+        <td>KV-cache disaggregation, MoE routing systems</td>
+        <td>OSDI, SOSP, MLSys</td>
+        <td>★★★★☆</td>
+      </tr>
+      <tr>
+        <td class="gap-area">K. Privacy &amp; Security</td>
+        <td><span class="status-pill s-hot">⚡ HOT</span></td>
+        <td>TEE-based FL, membership inference defenses</td>
+        <td>USENIX Sec, CCS, SOSP</td>
+        <td>★★★★☆</td>
+      </tr>
+      <tr>
+        <td class="gap-area">L. Emerging Areas</td>
+        <td><span class="status-pill s-emerge">▲ Emerging</span></td>
+        <td>LLM agents as OS schedulers, digital twins</td>
+        <td>arXiv, HotOS, HotNets</td>
+        <td>★★★★★</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout">
+    <strong>Three Highest-Opportunity Intersections for a PhD Thesis (2025):</strong><br>
+    1. <strong>ML-driven Concurrency Control + Distributed Transactions</strong> — Very few systems-level papers; Polyjuice (OSDI '21) remains largely unextended. Gap: online-learning CC for heterogeneous workloads.<br>
+    2. <strong>Federated Learning + Edge Inference for LLMs</strong> — Open: communication-efficient fine-tuning of billion-parameter models across mobile/edge devices.<br>
+    3. <strong>Parallel Acceleration of FHE/ZKP</strong> — GPU FHE provers exist (Phantom, etc.) but integration with distributed ML pipelines is wide open.
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN A -->
+<section id="A" class="section">
+  <div class="section-header">
+    <div class="section-id">A</div>
+    <div>
+      <div class="section-title">Federated Learning</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Privacy-preserving distributed model training across heterogeneous clients</div>
+    </div>
+    <span class="section-badge badge-emerging">▲ Emerging</span>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Domain Signal:</strong> FL has matured from FedAvg variants (2020–22) to tackling <strong>data heterogeneity at scale, LLM fine-tuning, and real deployment challenges</strong> (stragglers, Byzantine clients, communication cost). The frontier in 2024–25 is <strong>personalized FL + communication compression + private aggregation</strong> for LLMs and edge scenarios. Top venues: NeurIPS, ICML, MLSys, OSDI, MobiSys.
+  </div>
+
+  <div class="subareas-grid">
+
+    <!-- A.1 -->
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">A.1</span>
+        <span class="subarea-name">Heterogeneous / Non-IID Data Handling</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Addresses statistical heterogeneity where clients have non-identically distributed data, causing model divergence. Key approaches: personalized FL, clustered FL, bi-level optimization, and federated distillation.</div>
+        <div class="problem-tag">Problem: Global model accuracy degrades 20–40% under severe non-IID distributions</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">FedProto: Federated Prototype Learning across Heterogeneous Clients</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Shares class prototypes (feature centroids) instead of gradients; model-architecture-agnostic FL for heterogeneous settings.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FedDF: Ensemble Distillation for Robust Model Fusion in Federated Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Uses unlabeled public data for distillation-based aggregation, bypassing gradient averaging entirely.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">pFedHN: Personalized Federated Learning using Hypernetworks</div>
+          <div class="paper-meta"><span class="conf-badge conf-icml">ICML</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">A hypernetwork on the server generates client-specific model weights, achieving personalization without local fine-tuning overhead.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FedSplit: An Algorithmic Framework for Fast Federated Optimization</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Operator-splitting methods for FL convergence under data heterogeneity; provable convergence guarantees.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FLoRA: Federated Fine-Tuning Large Language Models with Heterogeneous Low-Rank Adaptations</div>
+          <div class="paper-meta"><span class="conf-badge conf-icml">ICML</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Federated LoRA aggregation that handles clients with different adapter ranks — critical for LLM FL deployments.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A.2 -->
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">A.2</span>
+        <span class="subarea-name">Communication Efficiency &amp; Gradient Compression</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Reduces the communication bottleneck in FL: quantization, sparsification, structured compression, sketching, and over-the-air computation. Critical for mobile edge deployments.</div>
+        <div class="problem-tag">Problem: Uplink bandwidth from millions of devices is the primary bottleneck</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">QSGD: Communication-Efficient SGD via Gradient Quantization and Encoding</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Unbiased stochastic gradient quantization with theoretical error bounds; widely deployed baseline.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FedPAGE: A Fast Local Stochastic Gradient Method for Communication-Efficient Federated Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-icml">ICML</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Variance-reduced gradient estimator (PAGE) reduces communication rounds by 3–5× for convergence.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FedSkip: Combating Statistical Heterogeneity with Federated Skip Aggregation</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Skip-layer aggregation selectively synchronizes layers to reduce communication while preserving accuracy.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">GRACE: A Compressed Communication Framework for Distributed Machine Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-iclr">ICLR</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Unified benchmark + framework for 20+ gradient compression algorithms; evaluates communication-convergence tradeoffs.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A.3 -->
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">A.3</span>
+        <span class="subarea-name">Byzantine-Robust Aggregation</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Defends against malicious clients sending poisoned gradients. Techniques: robust estimators (median, trimmed mean), gradient filtering, server-side verification, and reputation systems.</div>
+        <div class="problem-tag">Problem: Certifiable robustness vs. accuracy-privacy tradeoff under adaptive attacks</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">FLTrust: Byzantine-robust Federated Learning via Trust Bootstrapping</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Server maintains a small clean dataset; assigns trust scores to clients based on cosine similarity to server gradient.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Byzantine-Resilient Federated Learning with Heterogeneous Data</div>
+          <div class="paper-meta"><span class="conf-badge conf-icml">ICML</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Proves first convergence bounds for robust FL under both Byzantine attacks and data heterogeneity simultaneously.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FLAME: Taming Backdoors in Federated Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">USENIX Sec</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Clustering + noise addition on server to neutralize model poisoning while preserving accuracy.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A.4 -->
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">A.4</span>
+        <span class="subarea-name">Federated Learning + Large Language Models</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Fine-tuning LLMs (e.g., GPT, LLaMA) using federated approaches without centralizing sensitive text. Key challenges: model size, heterogeneous resources, adapter aggregation.</div>
+        <div class="problem-tag">Problem: Billion-param models cannot be loaded on edge devices; gradient communication is impossibly large</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">FedPETuning: When Federated Learning Meets the Parameter-Efficient Tuning Methods of Pre-trained Language Models</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">ACL</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Benchmarks adapter, prefix, LoRA tuning methods for FL across NLP tasks; identifies best communication tradeoffs.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">OpenFedLLM: Training Large Language Models on Decentralized Private Data via Federated Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">System framework for instruction-tuning LLMs across medical, legal, and financial silos without data sharing.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FedLoRA: When Federated Learning Meets Parameter-Efficient Fine-Tuning</div>
+          <div class="paper-meta"><span class="conf-badge conf-mlsys">MLSys</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Efficient federated LoRA aggregation strategy addressing rank heterogeneity across resource-constrained clients.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Federated Full-Parameter Tuning of Billion-Sized Language Models with Communication Cost under 18 Kilobytes</div>
+          <div class="paper-meta"><span class="conf-badge conf-icml">ICML</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Achieves full fine-tuning of 7B-param LLMs with sub-18KB per-round communication via perturbation-based gradient estimation.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A.5 -->
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">A.5</span>
+        <span class="subarea-name">Differential Privacy in FL</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Formal DP guarantees for gradient sharing in FL. Approaches: local DP (noise at client), central DP (noise at server), shuffle model. Key tension: privacy budget vs. model accuracy.</div>
+        <div class="problem-tag">Problem: Useful DP-FL at ε&lt;1 with non-IID data and model heterogeneity</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Federated Learning with Formal Differential Privacy Guarantees</div>
+          <div class="paper-meta"><span class="conf-badge conf-icml">ICML</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Tight analysis of DP-SGD in FL; proves Rényi DP composition across rounds under subsampling.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Private FL via Shuffled Model and Secure Aggregation</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Combines shuffle privacy amplification with secure aggregation for a strong privacy-accuracy Pareto frontier.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">DP-FORWARD: Fine-tuning and Inference of Language Models with Differential Privacy in Forward Pass</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Novel per-sample noise injection in forward pass for DP-LLM fine-tuning, avoiding costly gradient clipping.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A.6 -->
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">A.6</span>
+        <span class="subarea-name">System Efficiency: Asynchronous &amp; Hierarchical FL</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Overcomes straggler bottleneck via asynchronous aggregation or hierarchical aggregation (device → edge → cloud). Reduces wall-clock training time significantly.</div>
+        <div class="problem-tag">Problem: Synchronous FL wastes GPU time waiting for slowest client; stale gradients corrupt training</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">PAPAYA: Practical, Private, and Scalable Federated Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-mlsys">MLSys</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Production-grade asynchronous FL at Apple scale: 500M+ devices, handles drop-outs and staleness efficiently.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FedBuff: Buffered Asynchronous Federated Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-iclr">ICLR</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Maintains an update buffer; aggregates when buffer is full rather than waiting for all clients, reducing idle time.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Auxo: Heterogeneity-Mitigating Federated Learning via Scalable Client Clustering</div>
+          <div class="paper-meta"><span class="conf-badge conf-mlsys">MLSys</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Clusters clients by model update similarity; trains per-cluster global models to mitigate stragglers and heterogeneity jointly.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A.7 -->
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">A.7</span>
+        <span class="subarea-name">Federated Unlearning</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Enables clients to request removal of their data's influence from a trained global model (GDPR "right to be forgotten") without full retraining. Open area with few solid results.</div>
+        <div class="problem-tag">Problem: Certifiable unlearning verification without retraining from scratch</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Federated Unlearning with Knowledge Distillation</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Distillation-based unlearning method that erases specific clients' contributions without affecting remaining accuracy.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FedEraser: Enabling Efficient Client-Level Data Erasure in Federated Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-iclr">ICLR</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Calibration-based unlearning using historical training updates stored on the server for approximate erasure.</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- A.8 -->
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">A.8</span>
+        <span class="subarea-name">Cross-Device vs. Cross-Silo FL</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Cross-device: millions of mobile/IoT devices (high churn, low compute). Cross-silo: few institutions (hospitals, banks) with full participation. Different system design requirements and algorithms.</div>
+        <div class="problem-tag">Problem: Cross-device FL requires sub-second client selection and differential device capabilities</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Flower: A Friendly Federated Learning Research Framework</div>
+          <div class="paper-meta"><span class="conf-badge conf-mlsys">MLSys</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Open-source framework supporting 10M+ clients, evaluates cross-device and cross-silo FL under realistic conditions.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FedScale: Benchmarking Model and System Performance of Federated Learning at Scale</div>
+          <div class="paper-meta"><span class="conf-badge conf-icml">ICML</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Realistic benchmark with 20+ datasets, 1000+ device traces, and system-level metrics for cross-device FL.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end subareas-grid -->
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Key Benchmarks &amp; Datasets</div>
+      <div class="info-item"><span class="info-dot">◆</span>FedScale (20+ tasks, device traces)</div>
+      <div class="info-item"><span class="info-dot">◆</span>LEAF (FEMNIST, Shakespeare, CelebA)</div>
+      <div class="info-item"><span class="info-dot">◆</span>FLAME benchmark suite</div>
+      <div class="info-item"><span class="info-dot">◆</span>FL-bench (NeurIPS '24 track)</div>
+      <div class="info-item"><span class="info-dot">◆</span>FeTS (medical imaging FL)</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Open-Source Frameworks</div>
+      <div class="info-item"><span class="info-dot">◆</span>Flower (flwr.dev) — production-grade</div>
+      <div class="info-item"><span class="info-dot">◆</span>PySyft / OpenMined — privacy-first</div>
+      <div class="info-item"><span class="info-dot">◆</span>FedML — heterogeneous device support</div>
+      <div class="info-item"><span class="info-dot">◆</span>FATE — cross-silo, industry grade</div>
+      <div class="info-item"><span class="info-dot">◆</span>TensorFlow Federated (TFF)</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Open Research Gaps</div>
+      <div class="info-item"><span class="info-dot">◆</span>Federated fine-tuning of 70B+ parameter LLMs</div>
+      <div class="info-item"><span class="info-dot">◆</span>Certifiable unlearning with formal guarantees</div>
+      <div class="info-item"><span class="info-dot">◆</span>FL under graph-structured client networks</div>
+      <div class="info-item"><span class="info-dot">◆</span>Multi-task FL with task inference</div>
+      <div class="info-item"><span class="info-dot">◆</span>Efficient DP-FL for ε &lt; 1 at scale</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN B -->
+<section id="B" class="section">
+  <div class="section-header">
+    <div class="section-id">B</div>
+    <div>
+      <div class="section-title">Parallel Computing</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Algorithms, runtime systems, and programming models for parallelism</div>
+    </div>
+    <span class="section-badge badge-saturated">◼ Saturated Core</span>
+  </div>
+
+  <div class="callout">
+    <strong>Domain Signal:</strong> Classic parallel algorithms are mature. The active frontier (2022–25) is <strong>compiler-driven auto-parallelism for DNN workloads, RDMA-based distributed shared memory, task-based runtime systems, and GPU programming models</strong>. Key venues: SC, PPoPP, ASPLOS, EuroSys, HPCA, ICS.
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">B.1</span>
+        <span class="subarea-name">Auto-Parallelism &amp; Compiler-Based Scheduling</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Automatic partitioning of computation graphs across devices. Combines ILP/DP/RL with compiler IR transformations to find optimal tensor and pipeline parallel strategies.</div>
+        <div class="problem-tag">Problem: Search space for 4D parallelism (data/tensor/pipeline/sequence) is exponential</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Alpa: Automating Inter- and Intra-Operator Parallelism for Distributed Deep Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Two-level hierarchical search (inter-op pipeline + intra-op tensor parallel) via ILP; achieves near-manual performance automatically.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Unity: Accelerating DNN Training Through Joint Optimization of Algebraic Transformations and Parallelization</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Joint graph substitution and parallel strategy search in a unified framework; 2.4× speedup over Megatron-LM.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">WLB-LLM: Workload-Balanced 4D Parallelism for LLM Training</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Jointly optimizes data/tensor/pipeline/sequence parallelism for LLMs under heterogeneous workload distributions.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">TensorIR: An Abstraction for Automatic Tensorized Program Optimization</div>
+          <div class="paper-meta"><span class="conf-badge conf-asplos">ASPLOS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">New IR for tensor programs that exposes hardware intrinsics (e.g., tensor cores) for auto-scheduling.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">B.2</span>
+        <span class="subarea-name">GPU Programming Models &amp; Kernel Optimization</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">FlashAttention-style IO-aware kernels, Triton-based programming, CUDA graph optimization, and multi-GPU operator fusion. Active area driven by LLM workloads.</div>
+        <div class="problem-tag">Problem: Memory bandwidth is the bottleneck for attention; FLOP utilization often &lt;50%</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">FlashAttention-2: Faster Attention with Better Parallelism and Work Partitioning</div>
+          <div class="paper-meta"><span class="conf-badge conf-iclr">ICLR</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">2× speedup over FlashAttention-1 via better thread block tiling and warp-level parallelism; industry standard.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FlashAttention-3: Fast and Accurate Attention with Asynchrony and Low-Precision</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Hopper H100 specific optimizations: warpgroup async operations, FP8 support; 1.5–2× over FA2.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Triton: An Intermediate Language and Compiler for Tiled Neural Network Computations</div>
+          <div class="paper-meta"><span class="conf-badge conf-mlsys">MLSys</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Python-embedded DSL for GPU kernel programming at tile granularity; enables non-CUDA-experts to write high-performance kernels.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">B.3</span>
+        <span class="subarea-name">Task-Based &amp; Dataflow Runtime Systems</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Programming models where work is expressed as tasks with data dependencies (DAGs). Runtime handles scheduling, load balancing, and fault tolerance automatically. Examples: Legion, Regent, Dask, Ray.</div>
+        <div class="problem-tag">Problem: Scheduling billions of fine-grained tasks with dynamic dependencies at microsecond granularity</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Pathways: Asynchronous Distributed Dataflow for ML</div>
+          <div class="paper-meta"><span class="conf-badge conf-mlsys">MLSys</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Google's multi-controller dataflow system enabling efficient execution of ML models across heterogeneous accelerators (TPU, GPU).</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Hydro: Surrogate-Based Hyperparameter Tuning Service in the Datacenter</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Cluster-level hyperparameter tuning system using surrogate models; co-optimizes job-level and cluster-level objectives.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">SigmaOS: Unifying Serverless and Microservice Tasks</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Single platform combining burst-parallel serverless functions with long-running microservices via a unified task abstraction.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">B.4</span>
+        <span class="subarea-name">RDMA &amp; High-Speed Interconnects</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Exploiting RDMA, NVLink, InfiniBand, and CXL for distributed shared memory and collective communication. Key for ML training at scale.</div>
+        <div class="problem-tag">Problem: All-reduce collectives are the bottleneck in >1000-GPU training; NVLink topology matters</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">FastSwitch: Optimizing Parameter Server Architecture for Fast Model Parallel Training</div>
+          <div class="paper-meta"><span class="conf-badge conf-sc">SC</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">RDMA-based parameter server redesign; eliminates CPU involvement in gradient communication for GPU-GPU transfers.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Fast In-Network Lock Management Using Lock Fission</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">RDMA-based in-network lock manager that decomposes locks via "lock fission" to reduce network round trips.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Cerebros: Evading the RPC Tax in Datacenters</div>
+          <div class="paper-meta"><span class="conf-badge conf-asplos">ASPLOS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Bypasses OS for intra-datacenter RPCs via user-space RDMA; achieves 100ns p99 latency for distributed transactions.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">B.5</span>
+        <span class="subarea-name">Heterogeneous Computing (CPU+GPU+FPGA+CXL)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Workload-aware orchestration across diverse compute and memory hierarchies. CXL enables memory pooling. FPGA for irregular workloads. Key trend: LLM inference on heterogeneous hardware.</div>
+        <div class="problem-tag">Problem: Optimal workload placement across CXL memory, GPU HBM, and NVMe for LLM inference</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">KTransformers: CPU/GPU Hybrid Inference for MoE Models</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Expert routing-aware offloading of MoE layers between CPU and GPU; achieves 5× throughput over GPU-only serving.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FlexGen: High-Throughput Generative Inference with a Single GPU</div>
+          <div class="paper-meta"><span class="conf-badge conf-icml">ICML</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Offloads weights/KV-cache to CPU/NVMe using linear programming to find optimal tensor placement policy.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">B.6</span>
+        <span class="subarea-name">Collective Communication Optimization</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">AllReduce, AllGather, ReduceScatter topology-aware algorithms. NCCL optimization, compression-aware collectives, ring/tree switching, and overlap with compute.</div>
+        <div class="problem-tag">Problem: Communication-compute overlap in pipeline/tensor parallel training is nontrivial</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Overlap Communication with Dependent Computation in Large DNN Models</div>
+          <div class="paper-meta"><span class="conf-badge conf-asplos">ASPLOS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Decomposes compute and communication into fine-grained primitives and schedules them in parallel via dependency analysis.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">MSCCLang: A Domain-Specific Language for Collective Communication</div>
+          <div class="paper-meta"><span class="conf-badge conf-asplos">ASPLOS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Expressive DSL for writing custom collective algorithms; synthesizes efficient implementations for arbitrary topologies.</div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end grid -->
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Key Benchmarks</div>
+      <div class="info-item"><span class="info-dot">◆</span>MLPerf Training (v3.1, v4.0)</div>
+      <div class="info-item"><span class="info-dot">◆</span>NAS-Bench-360</div>
+      <div class="info-item"><span class="info-dot">◆</span>NCCL-tests (allreduce benchmarks)</div>
+      <div class="info-item"><span class="info-dot">◆</span>TPC-C/H for parallel DB</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Open-Source Systems</div>
+      <div class="info-item"><span class="info-dot">◆</span>Megatron-LM (NVIDIA)</div>
+      <div class="info-item"><span class="info-dot">◆</span>DeepSpeed (Microsoft)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Apache TVM / Triton</div>
+      <div class="info-item"><span class="info-dot">◆</span>Ray (Anyscale)</div>
+      <div class="info-item"><span class="info-dot">◆</span>NCCL + RCCL</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Open Research Gaps</div>
+      <div class="info-item"><span class="info-dot">◆</span>CXL memory tiering for billion-parameter models</div>
+      <div class="info-item"><span class="info-dot">◆</span>Auto-parallelism for multi-modal training</div>
+      <div class="info-item"><span class="info-dot">◆</span>Fault-tolerant collective comm at 10K+ GPUs</div>
+      <div class="info-item"><span class="info-dot">◆</span>Adaptive collectives under dynamic topology</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN C -->
+<section id="C" class="section">
+  <div class="section-header">
+    <div class="section-id">C</div>
+    <div>
+      <div class="section-title">Distributed Systems</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Consistency, fault tolerance, storage, and scheduling at scale</div>
+    </div>
+    <span class="section-badge badge-saturated">◼ Core / Evolving</span>
+  </div>
+
+  <div class="callout">
+    <strong>Domain Signal:</strong> Classic problems (consensus, transactions, replication) are well-studied, but <strong>disaggregated architectures, serverless computing, and ML-integrated storage systems</strong> are reshaping the field. New venues: SOSP, OSDI, NSDI, EuroSys, FAST, ATC.
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">C.1</span>
+        <span class="subarea-name">Disaggregated Memory &amp; Storage</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Separates compute and memory/storage resources connected via CXL or RDMA. Enables independent scaling of memory pools. Critical for LLM serving (KV cache disaggregation) and cloud cost efficiency.</div>
+        <div class="problem-tag">Problem: Memory utilization &lt;50% in monolithic servers; LLM KV caches waste 30–40% of GPU memory</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Mooncake: A KVCache-Centric Disaggregated Architecture for LLM Serving</div>
+          <div class="paper-meta"><span class="conf-badge conf-fast">FAST</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Separates prefill/decode clusters; multi-layer distributed KV cache pool with prefix-hashed object storage.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">DistServe: Disaggregating Prefill and Decoding for Goodput-Optimized LLM Serving</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Separate GPU pools for prefill (compute-heavy) and decode (memory-heavy) phases; 2–3.8× latency improvement.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">CXL and the Return of Scale-Up Architectures</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">HotOS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Argues CXL memory pooling enables a new class of scale-up architectures; challenges scale-out assumptions.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">MIND: In-Network Memory Management for Disaggregated Data Centers</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2021</span></div>
+          <div class="paper-summary">In-network cache coherence and virtual memory for disaggregated RDMA memory; near-local memory performance.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">C.2</span>
+        <span class="subarea-name">Distributed Transactions &amp; Consensus</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Serializability, snapshot isolation, and linearizability in geo-distributed or multi-datacenter settings. Active areas: RDMA-based OCC, deterministic databases, and flexible consistency models.</div>
+        <div class="problem-tag">Problem: Cross-shard transaction throughput bounded by 2PC latency and coordination overhead</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Polyjuice: High-Performance Transactions via Learned Concurrency Control</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2021</span></div>
+          <div class="paper-summary">Learns a workload-specific concurrency control protocol using RL; outperforms hand-tuned OCC/2PL by 2–4×. <em>Foundational gap paper — little follow-up work exists.</em></div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Towards Optimal Transaction Scheduling (MVSchedO)</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Schedule-first CC protocol; pre-orders transactions on hot keys to reduce makespan by up to 11×.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Sonata: Multi-Database Transactions Made Fast and Serializable</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Cross-database serializability via a novel timestamp protocol; eliminates per-shard coordinators.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">RCBench: RDMA-Enabled Transaction Framework for Concurrency Control Analysis</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB Journal</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Systematic benchmark for CC algorithms over RDMA; reveals RDMA changes the optimal CC protocol choice.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">C.3</span>
+        <span class="subarea-name">Serverless &amp; Function-as-a-Service Systems</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Stateless function execution on elastic cloud infrastructure. Problems: cold start latency, state management, function chaining, and resource scheduling. Increasingly used for ML inference.</div>
+        <div class="problem-tag">Problem: Cold starts take 100ms–10s; stateful workflows require external storage round trips</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">ServerlessLLM: Low-Latency Serverless Inference for Large Language Models</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Checkpoint-based fast loading of LLM weights for serverless functions; reduces cold start from minutes to seconds.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Catalyzer: Sub-millisecond Startup for Serverless Computing with Initialization-less Booting</div>
+          <div class="paper-meta"><span class="conf-badge conf-asplos">ASPLOS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Snapshots initialized sandbox state at microcontainer level; achieves &lt;1ms cold starts for most functions.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Serialization-Free State Transfer in Serverless Workflows with RDMA Remote Memory Map</div>
+          <div class="paper-meta"><span class="conf-badge conf-eurosys">EuroSys</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Passes state between chained functions via RDMA memory mapping, eliminating serialization overhead entirely.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">C.4</span>
+        <span class="subarea-name">Fault Tolerance &amp; Resilient Distributed Training</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Checkpoint, recovery, and fault-aware scheduling for large-scale distributed DNN training. GPU failures become frequent at 10K+ GPU scale; recovery time dominates total training time.</div>
+        <div class="problem-tag">Problem: A100/H100 GPU failure rates make fault-free 10K-GPU-day training impossible without recovery</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Gemini: Fast Failure Recovery in Distributed Training with In-Memory Checkpoints</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Asynchronous CPU-memory checkpointing; overlaps checkpoint with training; recovers from failure in seconds vs. minutes.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Oobleck: Resilient Distributed Training using Pipeline Templates</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Pre-computes multiple pipeline templates; hot-swaps to alternative pipeline configuration on failure without restarting.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Bamboo: Making Preemptible Instances Resilient for Affordable DNN Training</div>
+          <div class="paper-meta"><span class="conf-badge conf-nsdi">NSDI</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Redundant computation in pipeline parallel training masks spot instance preemption; 3× cost reduction on AWS spot.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">C.5</span>
+        <span class="subarea-name">Cloud-Native Storage Systems (NVM, Tiered Storage)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Persistent memory (NVM/Optane), CXL-attached storage, tiered memory hierarchies, and log-structured storage for cloud workloads. Intersection with ML data pipelines.</div>
+        <div class="problem-tag">Problem: I/O bottleneck during LLM training data loading; tiered storage policy for KV caches</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">TreeSLS: A Tree-structured Microkernel with Efficient Whole-system Persistence on NVM</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Best Paper Award. Whole-system checkpointing to NVM using a tree-structured OS kernel; μs-level recovery.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">CacheGen: KV Cache Compression and Streaming for Fast LLM Serving</div>
+          <div class="paper-meta"><span class="conf-badge conf-sigcomm">SIGCOMM</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Encodes KV caches as a video-like bitstream; streams compressed caches across network for prefill reuse.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">C.6</span>
+        <span class="subarea-name">Cluster Scheduling &amp; Resource Management</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">GPU cluster schedulers for deep learning jobs: gang-scheduling, elastic training, multi-resource bin packing, and SLO-aware scheduling. Major system infrastructure for cloud ML platforms.</div>
+        <div class="problem-tag">Problem: Fragmentation in GPU clusters leads to 30–50% idle GPU time across industry deployments</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Llumnix: Dynamic Scheduling for Large Language Model Serving</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Live request migration between LLM instances for load balancing; reduces P99 latency by 40% vs. static assignment.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Synergy: Looking Beyond GPUs for DNN Scheduling on Multi-Tenant Clusters</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">CPU, memory, network are co-bottlenecks with GPU; joint multi-resource scheduling improves cluster throughput 2×.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Parcae: Proactive, Liveput-Optimized DNN Training on Preemptible Instances</div>
+          <div class="paper-meta"><span class="conf-badge conf-nsdi">NSDI</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Predicts spot preemptions; proactively repartitions training to minimize wasted compute, 10× cost reduction.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Key Benchmarks</div>
+      <div class="info-item"><span class="info-dot">◆</span>YCSB (NoSQL workloads)</div>
+      <div class="info-item"><span class="info-dot">◆</span>TPC-C/E (OLTP)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Philly/Helios GPU cluster traces</div>
+      <div class="info-item"><span class="info-dot">◆</span>ShareGPT/AzureConv LLM traces</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Open-Source Systems</div>
+      <div class="info-item"><span class="info-dot">◆</span>Kubernetes + KEDA (autoscaling)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Ceph (distributed storage)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Apache Flink / Spark</div>
+      <div class="info-item"><span class="info-dot">◆</span>FoundationDB (distributed KV)</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Open Research Gaps</div>
+      <div class="info-item"><span class="info-dot">◆</span>Learned concurrency control for HTAP workloads</div>
+      <div class="info-item"><span class="info-dot">◆</span>CXL-native disaggregated databases</div>
+      <div class="info-item"><span class="info-dot">◆</span>Serverless ML training with state recovery</div>
+      <div class="info-item"><span class="info-dot">◆</span>ML-guided cluster scheduling with SLO guarantees</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN D -->
+<section id="D" class="section">
+  <div class="section-header">
+    <div class="section-id">D</div>
+    <div>
+      <div class="section-title">Blockchain / Web3 Systems</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Consensus, scalability, smart contracts, and decentralized ML</div>
+    </div>
+    <span class="section-badge badge-emerging">▲ Emerging / Selective</span>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Domain Signal:</strong> Blockchain systems research in top venues (OSDI, NSDI, SOSP) focuses on <strong>high-throughput BFT consensus, ZK-proof systems, and on-chain/off-chain hybrid execution</strong>. The intersection with ML (decentralized training, verifiable inference) is nascent and high-opportunity. Most application-layer blockchain work appears in IEEE S&amp;P, CCS, and domain-specific venues.
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">D.1</span>
+        <span class="subarea-name">High-Throughput BFT Consensus</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Byzantine fault-tolerant protocols that scale to thousands of TPS. DAG-based BFT (Bullshark, DAG-Rider), HotStuff variants, and pipelining techniques.</div>
+        <div class="problem-tag">Problem: Classical BFT protocols cap at ~1000 TPS; practical blockchains need 100K+ TPS</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Bullshark: DAG BFT Protocols Made Practical</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">CCS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">DAG-structured mempool allows parallel proposal; consensus on committed anchors achieves 125K TPS on 50 nodes.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Shoal: A DAG BFT Protocol with Low Latency and High Responsiveness</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Pipelining and reputation-based leader rotation on top of Bullshark; sub-second latency at scale.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Mysticeti: Low-Latency DAG Consensus with Fast Commit Path</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">USENIX ATC</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Concurrent block proposal in DAG; leader-only fast path reduces median latency to 0.5s for Sui blockchain.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">D.2</span>
+        <span class="subarea-name">ZK-Proof Systems &amp; Rollups</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Zero-knowledge proofs (SNARKs, STARKs, PLONKs) for blockchain scalability (rollups) and verifiable computation. Prover performance is the critical bottleneck—GPUs/FPGAs are used.</div>
+        <div class="problem-tag">Problem: ZK proof generation takes seconds to minutes; L2 rollup throughput limited by proof batch time</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Icicle: Hardware Acceleration for ZKPs using CUDA</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">GPU-accelerated MSM (multi-scalar multiplication) and NTT (number-theoretic transform) primitives; 10–100× speedup over CPU provers.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">cuZK: Accelerating Zero-Knowledge Proof with A Faster Parallel Multi-Scalar Multiplication Algorithm on GPUs</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">IEEE TPDS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Novel GPU MSM algorithm with better bucket partitioning; 3.5× over prior GPU MSM for Groth16 proofs.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Pianist: Scalable zkRollups via Fully Distributed Zero-Knowledge Proofs</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">IEEE S&amp;P</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Distributes ZK proof generation across multiple machines; linear scaling for Plonk-based rollup provers.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">D.3</span>
+        <span class="subarea-name">Blockchain-Based Decentralized ML</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Using blockchain for trustless FL aggregation, model marketplace, verifiable inference, and tokenized data contribution. Intersection of FL + blockchain + ZKP.</div>
+        <div class="problem-tag">Problem: Verifying correct model aggregation or inference on-chain is computationally infeasible</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">zkML: Verifiable Machine Learning Inference via Zero-Knowledge Proofs</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Compiles DNN inference into ZK circuits; enables on-chain verification that off-chain inference was correct.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">EZKL: Scaling Up ML Inference Proofs with Ethereum</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Production ZK prover for ONNX models; enables on-chain verification of small neural network predictions.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">FedChain: An Efficient and Secure Consensus Protocol based on Proof of Useful Federated Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">IEEE TIFS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Replaces PoW mining with FL training as proof-of-work; verifiable gradient quality via hash commitments.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">D.4</span>
+        <span class="subarea-name">Smart Contract Systems &amp; Parallel Execution</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Parallelizing smart contract execution across shards or within a block. Key challenge: detecting and handling transaction dependencies (read-write conflicts) at runtime.</div>
+        <div class="problem-tag">Problem: Sequential EVM execution limits Ethereum to ~15 TPS; parallel execution requires conflict detection</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Parallel EVM: Concurrency Control for High-Throughput Smart Contracts</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Optimistic parallel execution with rollback on conflict detection; 5–20× throughput improvement over serial EVM.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Block-STM: Scaling Blockchain Execution by Turning Ordering Curse to a Performance Blessing</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv / PPoPP</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Software transactional memory for in-block parallelism; used in production by Aptos blockchain at 160K TPS.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Open Research Gaps</div>
+      <div class="info-item"><span class="info-dot">◆</span>Efficient ZK proofs for LLM inference (100M+ param)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Blockchain-native FL aggregation with verifiability</div>
+      <div class="info-item"><span class="info-dot">◆</span>Parallel EVM with ML-predicted conflict graphs</div>
+      <div class="info-item"><span class="info-dot">◆</span>Decentralized AI model governance on-chain</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Open-Source Tools</div>
+      <div class="info-item"><span class="info-dot">◆</span>EZKL (zkML inference prover)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Icicle (GPU ZK acceleration)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Sui / Aptos (DAG BFT chains)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Halo2 / Plonky2 (ZK frameworks)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN E -->
+<section id="E" class="section">
+  <div class="section-header">
+    <div class="section-id">E</div>
+    <div>
+      <div class="section-title">Edge Computing / Fog Computing</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Inference, training, and orchestration at the network edge</div>
+    </div>
+    <span class="section-badge badge-emerging">⚡ High Potential</span>
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">E.1</span>
+        <span class="subarea-name">DNN Inference Optimization at Edge</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Model compression, quantization, pruning, and split inference for resource-constrained edge devices (phones, Raspberry Pi, Jetson). Latency and energy are primary constraints.</div>
+        <div class="problem-tag">Problem: LLM inference on mobile: 7B model = 14GB; typical phone has 6–8GB RAM</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">LLM in a Flash: Efficient Large Language Model Inference with Limited Memory</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv (Apple)</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Offloads LLM weights to flash storage; intelligent prefetching achieves 25 tok/s on iPhone using sparsity-aware loading.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">EdgeBERT: Sentence-Level Energy Optimizations for Latency-Aware Multi-Task NLP Inference</div>
+          <div class="paper-meta"><span class="conf-badge conf-hpca">MICRO</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Early-exit BERT for edge: adapts compute to input complexity; 7× energy reduction vs. standard inference.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Characterizing Mobile SoC for Accelerating Heterogeneous LLM Inference</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Characterizes Apple M-series and Qualcomm SoC for LLM inference; finds CPU+GPU+NPU co-execution optimal.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">E.2</span>
+        <span class="subarea-name">Split Computing &amp; Model Partitioning</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Partitions DNN layers across edge device and cloud server. Intermediate feature compression and adaptive splitting based on bandwidth. Addresses the memory-bandwidth tradeoff.</div>
+        <div class="problem-tag">Problem: Intermediate feature tensors can be larger than model weights; split point selection is dynamic</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">SPINN: Synergistic Progressive Inference of Neural Networks over Device and Cloud</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">MobiCom</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Progressive early-exit + split computing; dynamically adapts to network bandwidth and device battery state.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Elf: Accelerate High-resolution Mobile Deep Vision with Content-aware Parallel Offloading</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">MobiCom</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Content-aware spatial partitioning of image frames across device/edge for video analytics pipelines.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">E.3</span>
+        <span class="subarea-name">Hierarchical Federated Learning (Device-Edge-Cloud)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Three-tier FL: device trains locally, edge aggregates within cluster, cloud aggregates globally. Reduces communication to cloud; enables local personalization. Active area with many systems papers.</div>
+        <div class="problem-tag">Problem: Optimal aggregation frequency at each tier; edge server bandwidth is shared among thousands of devices</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">FedHiSyn: A Hierarchical Synchronous Federated Learning Framework with Grouped Clients</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">ICS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Groups clients by speed; synchronizes within groups before cross-group aggregation; reduces straggler effect.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">HFL-TS: Hierarchical Federated Learning with Topology-Aware Scheduling</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">IEEE TPDS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Topology-aware client grouping at edge; considers link bandwidth for scheduling aggregation rounds.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">E.4</span>
+        <span class="subarea-name">Edge Orchestration &amp; Resource Management</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Kubernetes-based edge orchestration, multi-access edge computing (MEC), offloading decisions, and SLA-aware scheduling for heterogeneous edge nodes.</div>
+        <div class="problem-tag">Problem: Joint optimization of task offloading, model selection, and resource allocation under dynamic workloads</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Ekya: Continuous Learning of Video Analytics Models on Edge Compute Servers</div>
+          <div class="paper-meta"><span class="conf-badge conf-nsdi">NSDI</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Continuously retrains video analytics models on edge servers by sharing GPU between inference and retraining tasks.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">ARISE: Towards Sustainable AI Model Lifecycle Management on the Edge</div>
+          <div class="paper-meta"><span class="conf-badge conf-nsdi">NSDI</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Manages model versioning, updates, and A/B testing across edge deployments under energy and bandwidth constraints.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Open Research Gaps</div>
+      <div class="info-item"><span class="info-dot">◆</span>On-device fine-tuning of 7B LLMs without gradient accumulation</div>
+      <div class="info-item"><span class="info-dot">◆</span>Privacy-preserving split computing (intermediate activations leak data)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Energy-aware FL scheduling for battery-powered sensors</div>
+      <div class="info-item"><span class="info-dot">◆</span>Satellite edge FL for remote/disaster scenarios</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Benchmarks &amp; Frameworks</div>
+      <div class="info-item"><span class="info-dot">◆</span>MLCommons Mobile (edge inference)</div>
+      <div class="info-item"><span class="info-dot">◆</span>AIBench Edge</div>
+      <div class="info-item"><span class="info-dot">◆</span>ExecuTorch (PyTorch edge runtime)</div>
+      <div class="info-item"><span class="info-dot">◆</span>TensorFlow Lite / ONNX Runtime</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN F -->
+<section id="F" class="section">
+  <div class="section-header">
+    <div class="section-id">F</div>
+    <div>
+      <div class="section-title">Hardware Acceleration (GPU, TPU, FPGA, ASIC)</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Architecture-level acceleration for ML and emerging workloads</div>
+    </div>
+    <span class="section-badge badge-industry">■ Industry-Dominant</span>
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">F.1</span>
+        <span class="subarea-name">LLM-Specific Hardware Design (NPU/ASIC)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Custom silicon for LLM inference: attention engines, KV-cache memory systems, sparsity exploitation, and near-memory compute. TPU v4, Inferentia, Trainium, Groq.</div>
+        <div class="problem-tag">Problem: Attention has quadratic memory complexity; DRAM bandwidth is the primary bottleneck for decode</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">TPU v4: An Optically Reconfigurable Supercomputer for Machine Learning with Hardware Support for Embeddings</div>
+          <div class="paper-meta"><span class="conf-badge conf-hpca">ISCA</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Google's 4096-chip TPU v4 pod with optical switching; 10 exaflops per pod, training GPT-class models.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Tender: LLM Inference via Tensor Decomposition and Runtime Requantization</div>
+          <div class="paper-meta"><span class="conf-badge conf-hpca">ISCA</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Decomposes outlier channels in LLM weights for INT4 quantization; hardware-software co-design for near-lossless quantization.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">ALISA: Accelerating LLM Inference via Sparsity-Aware KV Caching</div>
+          <div class="paper-meta"><span class="conf-badge conf-hpca">ISCA</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Hardware accelerator with attention-head-specific KV cache sparsity; reduces memory bandwidth by 60%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">F.2</span>
+        <span class="subarea-name">FPGA-Based Accelerators for ML &amp; Crypto</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">FPGAs for low-latency, energy-efficient inference and cryptographic acceleration (FHE, ZKP). Reconfigurability allows rapid prototype deployment in cloud (Azure FPGA, AWS F1).</div>
+        <div class="problem-tag">Problem: FPGA development cost (HLS, timing, placement) limits adoption; compiler toolchains are immature</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">AutoFHE: Automated Adaption of CNNs for Efficient Evaluation over FHE</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">USENIX Sec</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Automatically adapts CNN architectures for FPGA-accelerated FHE inference; first to achieve &lt;1s for ResNet-20.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">TVM.FPGA: Cross-Architecture Programming Abstractions for FPGAs</div>
+          <div class="paper-meta"><span class="conf-badge conf-asplos">ASPLOS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Extends Apache TVM to target FPGAs via VTA (Versatile Tensor Accelerator); single codebase for GPU+FPGA.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">F.3</span>
+        <span class="subarea-name">GPU Architecture: Hopper, Blackwell, &amp; Beyond</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Architectural analysis of H100/H200/B200 features: warpgroup MMA, TMA (tensor memory accelerator), NVLink 4.0, HBM3, transformer engine. System software to exploit new ISA features.</div>
+        <div class="problem-tag">Problem: Programmers cannot exploit async TMA pipelines efficiently without new abstractions</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Benchmarking and Dissecting the NVIDIA Hopper GPU Architecture</div>
+          <div class="paper-meta"><span class="conf-badge conf-sc">IPDPS</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Microbenchmark-based characterization of H100: warpgroup MMA throughput, L2 bandwidth, NVLink topology effects.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Mercury: Multi-GPU Operator Optimization for LLMs via Remote Memory Scheduling</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Schedules LLM operators across GPU remote memory (NVLink SHARP); eliminates all-to-all communication bottlenecks.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Open Research Gaps</div>
+      <div class="info-item"><span class="info-dot">◆</span>CXL-attached memory for LLM KV-cache hierarchy</div>
+      <div class="info-item"><span class="info-dot">◆</span>Chiplet-based heterogeneous ML accelerators</div>
+      <div class="info-item"><span class="info-dot">◆</span>Wafer-scale integration for trillion-param models</div>
+      <div class="info-item"><span class="info-dot">◆</span>PIM (Processing-in-Memory) for attention layers</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN G -->
+<section id="G" class="section">
+  <div class="section-header">
+    <div class="section-id">G</div>
+    <div>
+      <div class="section-title">Acceleration of Cryptographic Algorithms</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">GPU/FPGA/ASIC acceleration of FHE, ZKP, MPC, and post-quantum cryptography</div>
+    </div>
+    <span class="section-badge badge-emerging">★ Highest Opportunity</span>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Why This Area:</strong> Fully Homomorphic Encryption, Zero-Knowledge Proofs, and Secure Multi-Party Computation are the key bottlenecks in <strong>privacy-preserving ML, blockchain rollups, and confidential cloud computing</strong>. These are compute-intensive with massive parallelism potential. Publications span IEEE S&amp;P, USENIX Security, CCS, HPCA, ISCA, and specialized workshops. This is one of the <strong>least saturated high-impact areas</strong> for systems PhDs.
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">G.1</span>
+        <span class="subarea-name">GPU Acceleration of Fully Homomorphic Encryption (FHE)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">FHE allows computation on encrypted data. Core operations (NTT, polynomial multiplication in RLWE) are highly parallelizable. Current FHE is 10,000–1,000,000× slower than plaintext compute.</div>
+        <div class="problem-tag">Problem: FHE bootstrapping costs 10–100 seconds on CPU; GPU can reduce to &lt;1s but requires careful NTT scheduling</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Phantom: A CUDA-Accelerated Word-Wise Homomorphic Encryption Library</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">CUDA implementation of BFV/CKKS/BGV; 20–50× speedup over CPU for FHE operations; open-source.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">100× Faster Bootstrapping in Fully Homomorphic Encryption through Memory-centric Algorithm Design</div>
+          <div class="paper-meta"><span class="conf-badge conf-hpca">HPCA</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Redesigns FHE bootstrapping around GPU memory hierarchy; memory-centric NTT achieves 100× speedup over Intel SEAL.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">CuHE: A Homomorphic Encryption Accelerator Library on GPU</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">CUDA library for FHE with support for batched SIMD operations; first to exploit GPU tensor cores for FHE.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">BTS: An Accelerator for Bootstrappable Fully Homomorphic Encryption</div>
+          <div class="paper-meta"><span class="conf-badge conf-hpca">ISCA</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">ASIC accelerator for CKKS FHE bootstrapping; 2,000× speedup over CPU via on-chip storage for key-switching keys.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">G.2</span>
+        <span class="subarea-name">Parallel ZK Proof Generation (SNARK/STARK)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Parallelizing MSM (multi-scalar multiplication) and NTT on GPU/FPGA for Groth16, PLONK, and STARK provers. Critical for ZK-rollup throughput and verifiable ML inference.</div>
+        <div class="problem-tag">Problem: MSM is the prover bottleneck (60–80% of proving time); Pippenger's algorithm needs GPU-specific optimization</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">cuZK: A Faster Parallel MSM Algorithm on GPUs for Zero-Knowledge Proofs</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">IEEE TPDS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Bucket reduction with GPU-optimized memory access; 3.5× over prior GPU MSM at scale of ZK circuits used in Ethereum.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Icicle: GPU Library for ZKPs</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Production CUDA library (Ingonyama) for MSM, NTT, Poseidon hash; widely used in zkEVM implementations.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Pianist: Distributed ZK Proof Generation via Distributed MSM</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">IEEE S&amp;P</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Distributes MSM across multiple GPUs/machines; linear scaling for large ZK circuits (million+ constraints).</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">G.3</span>
+        <span class="subarea-name">Secure Multi-Party Computation (MPC) Acceleration</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">GPU/FPGA acceleration of garbled circuits, oblivious transfer, secret sharing, and SPDZ protocols. Key for privacy-preserving ML inference without trusted hardware.</div>
+        <div class="problem-tag">Problem: MPC for neural network inference is 100–10,000× slower than plaintext; offline phase dominates cost</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">CrypTen: Secure Multi-Party Computation Meets Machine Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">PyTorch-based MPC framework for ML; GPU-accelerated secret sharing enables 10× faster private inference.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">MPCFormer: Fast, Performant, and Private Transformer Inference with MPC</div>
+          <div class="paper-meta"><span class="conf-badge conf-iclr">ICLR</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Replaces non-linear activations with MPC-friendly approximations; distillation recovers accuracy; 5.3× speedup.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Ditto: Efficient Oblivious Training of Large Neural Networks</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">USENIX Sec</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">GPU-accelerated oblivious training via MPC; first to scale private training to ResNet-50 at practical speed.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">G.4</span>
+        <span class="subarea-name">Post-Quantum Cryptography Hardware</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">NIST PQC standardization (CRYSTALS-Kyber, Dilithium, SPHINCS+) is driving hardware implementation research. Lattice-based operations share NTT primitives with FHE — a significant synergy.</div>
+        <div class="problem-tag">Problem: PQC signatures are 50–100× larger than elliptic curve; hardware must handle large polynomials efficiently</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">High-Performance Hardware Implementation of CRYSTALS-Dilithium</div>
+          <div class="paper-meta"><span class="conf-badge conf-hpca">TCHES</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">FPGA implementation of Dilithium signing; shares NTT core with Kyber; full pipeline achieving 25K signs/sec.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">NTTU: An Area-Efficient Low-Power NTT-Uncoupled Architecture for NTT-Based Multiplication</div>
+          <div class="paper-meta"><span class="conf-badge conf-hpca">HPCA</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Unified NTT hardware for both FHE and PQC workloads; 40% area reduction vs. separate implementations.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">G.5</span>
+        <span class="subarea-name">FHE-ML: Private Inference over Encrypted Data</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Running neural network inference entirely on FHE-encrypted data. Allows cloud ML service without seeing plaintext. Key challenge: non-polynomial activations (ReLU) are expensive in FHE.</div>
+        <div class="problem-tag">Problem: ReLU in FHE costs 100,000 NTT ops; ResNet-20 inference takes 60+ minutes on single CPU</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">CryptoNAS: Private Inference Over DNN Compressed via Neural Architecture Search</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">NAS-optimized models for FHE: minimizes ReLU count and depth while preserving accuracy under FHE constraints.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">HEAR: Human Action Recognition via Neural Networks on Homomorphically Encrypted Data</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">First practical FHE-based video classification; GPU-accelerated CKKS with polynomial activation approximation.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Open Research Gaps — WIDE OPEN</div>
+      <div class="info-item"><span class="info-dot">◆</span>Distributed GPU cluster for FHE-LLM inference</div>
+      <div class="info-item"><span class="info-dot">◆</span>Efficient multi-GPU ZK proof parallelism for 10M+ constraints</div>
+      <div class="info-item"><span class="info-dot">◆</span>NTT hardware sharing between FHE and PQC on same ASIC</div>
+      <div class="info-item"><span class="info-dot">◆</span>MPC + FL: private federated fine-tuning with MPC aggregation</div>
+      <div class="info-item"><span class="info-dot">◆</span>FHE bootstrapping under 100ms for real-time applications</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Frameworks</div>
+      <div class="info-item"><span class="info-dot">◆</span>Microsoft SEAL / OpenFHE (FHE)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Phantom (GPU FHE)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Icicle (GPU ZKP)</div>
+      <div class="info-item"><span class="info-dot">◆</span>CrypTen (GPU MPC)</div>
+      <div class="info-item"><span class="info-dot">◆</span>EZKL (zkML inference)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN H -->
+<section id="H" class="section">
+  <div class="section-header">
+    <div class="section-id">H</div>
+    <div>
+      <div class="section-title">Acceleration of RL and Deep Learning via Parallelism</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Distributed RL, RLHF, parallel training frameworks, and multi-agent systems</div>
+    </div>
+    <span class="section-badge badge-emerging">★ Highest Opportunity</span>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Domain Signal (2024–25):</strong> Distributed RLHF (Reinforcement Learning from Human Feedback) for LLM alignment is the hottest sub-area — systems like <strong>OpenRLHF, ReaLHF, and RLHF-Blades</strong> are emerging rapidly. Multi-GPU PPO pipelines, policy gradient parallelism, and experience replay distributed storage are all open systems problems. Venues: MLSys, NeurIPS, ICML, OSDI.
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">H.1</span>
+        <span class="subarea-name">Distributed RLHF Systems</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">System infrastructure for RLHF: actor (policy), critic, reference model, and reward model all run simultaneously, requiring careful GPU memory partitioning and scheduling.</div>
+        <div class="problem-tag">Problem: 4 models active simultaneously; GPU OOM with naive placement; inference-training pipeline bubbles</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">OpenRLHF: An Easy-to-Use, Scalable and High Performance RLHF Framework Based on Ray</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Open-source RLHF system on Ray; co-locates actor+vLLM on same GPUs; achieves 13× throughput vs. DeepSpeed-Chat.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">ReaLHF: Optimized RLHF Training for LLMs through Parameter Reallocation</div>
+          <div class="paper-meta"><span class="conf-badge conf-mlsys">MLSys</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Dynamically reallocates GPU partitions between actor/critic based on compute phase; eliminates bubble time.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">RLHF-Blades: Scalable RLHF with Byzantine-Robust Federated Reward Modeling</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Federated RLHF with Byzantine-robust reward model aggregation for distributed human feedback collection.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">H.2</span>
+        <span class="subarea-name">Parallel Deep RL (Policy Gradient, Q-Learning)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Distributed experience collection, replay buffer parallelism, asynchronous policy updates (A3C, IMPALA, APPO). Key challenge: actor-learner communication latency.</div>
+        <div class="problem-tag">Problem: Experience collection is CPU-bound; GPU learner starves waiting for actors; replay buffer is a serialization bottleneck</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Sample Factory: Egocentric 3D Control from Pixels at 100,000 FPS with Asynchronous RL</div>
+          <div class="paper-meta"><span class="conf-badge conf-icml">ICML</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Asynchronous RL system achieving 100K FPS via vectorized environments and lock-free actor-learner communication.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Distributed Reinforcement Learning for Robot Locomotion</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">GPU-accelerated physics simulation enabling 10,000 parallel environments; 100× faster policy training.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Replicating and Improving InstructGPT with Open-Source Distributed RL Pipeline</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Open-source PPO pipeline for LLM alignment; identifies key bottlenecks in generation-training ratio.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">H.3</span>
+        <span class="subarea-name">Pipeline Parallelism for DNN Training</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Splitting model layers across pipeline stages; micro-batch scheduling to hide inter-stage communication. GPipe, PipeDream, Megatron-LM pipeline, and 1F1B scheduling.</div>
+        <div class="problem-tag">Problem: Pipeline bubbles waste 20–50% of GPU time in naive schedules; memory grows with pipeline depth</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Megatron-LM: Training Multi-Billion Parameter Language Models with 3D Parallelism</div>
+          <div class="paper-meta"><span class="conf-badge conf-sc">SC</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Combines tensor, pipeline, and data parallelism; achieves 52% MFU on 1,000 A100 GPUs; industry standard.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Chimera: Efficiently Training Large-Scale Neural Networks with Bidirectional Pipelines</div>
+          <div class="paper-meta"><span class="conf-badge conf-sc">SC</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Bidirectional pipeline schedule that halves bubble ratio vs. standard 1F1B; works for balanced pipeline stages.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">DCP: Dynamic Context Parallelism for Long-Context LLM Training</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Dynamic sequence parallelism that handles variable-length inputs; critical for long-context (128K+) LLM training.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">H.4</span>
+        <span class="subarea-name">Multi-Agent RL Systems</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Distributed training of multi-agent systems: centralized training / decentralized execution (CTDE), emergent communication, and GPU-parallelized environment simulation for MARL.</div>
+        <div class="problem-tag">Problem: Exponential joint state-action space; credit assignment in multi-agent reward sharing</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Scalable Multi-Agent Reinforcement Learning via Distributed Data Collection with GPU Acceleration</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Massively parallel GPU-based environment simulation for 1000s of agents; enables StarCraft-scale MARL training.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">EPyMARL: Extended PyMARL for Multi-Agent Reinforcement Learning Research</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">JMLR</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Extended benchmark framework with distributed training; standardizes MARL algorithm evaluation across environments.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Open Research Gaps</div>
+      <div class="info-item"><span class="info-dot">◆</span>Efficient RLHF with heterogeneous reward models (multiple verifiers)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Federated RLHF with privacy-preserving reward aggregation</div>
+      <div class="info-item"><span class="info-dot">◆</span>Distributed model-based RL (world model + planning)</div>
+      <div class="info-item"><span class="info-dot">◆</span>RL for chip floorplanning at scale (ML EDA)</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Open-Source Systems</div>
+      <div class="info-item"><span class="info-dot">◆</span>OpenRLHF (Ray-based RLHF)</div>
+      <div class="info-item"><span class="info-dot">◆</span>DeepSpeed-Chat</div>
+      <div class="info-item"><span class="info-dot">◆</span>Sample Factory</div>
+      <div class="info-item"><span class="info-dot">◆</span>Isaac Gym / IsaacLab (GPU sim)</div>
+      <div class="info-item"><span class="info-dot">◆</span>TorchRL</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN I -->
+<section id="I" class="section">
+  <div class="section-header">
+    <div class="section-id">I</div>
+    <div>
+      <div class="section-title">ML for Systems</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">ML-driven scheduling, concurrency control, DB tuning, and system optimization</div>
+    </div>
+    <span class="section-badge badge-emerging">★ Highest Opportunity</span>
+  </div>
+
+  <div class="callout callout-green">
+    <strong>Special Focus Area:</strong> This is arguably the <strong>highest-opportunity PhD niche</strong> combining systems expertise with ML. <strong>ML-driven concurrency control</strong> is particularly underexplored — only Polyjuice (OSDI '21) has deeply tackled this, leaving vast space for follow-up. Learned DB components (indexes, query optimizers, CC protocols) published in SIGMOD, VLDB, OSDI. LLM-for-DB is an emerging 2024–25 trend.
+  </div>
+
+  <div class="subareas-grid">
+
+    <!-- I.1 — SPECIAL FOCUS -->
+    <div class="subarea-card" style="border-color: var(--accent-amber); background: #fffdf5">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">I.1 ★</span>
+        <span class="subarea-name">ML-Driven Concurrency Control (Special Focus)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">
+          Using RL or supervised learning to select/switch concurrency control protocols at runtime based on workload characteristics. Traditional systems choose statically between 2PL, OCC, MVCC — but no single protocol wins for all workloads.
+          <br><br>
+          <strong style="color:var(--accent-amber)">Why underexplored:</strong> Polyjuice (OSDI '21) proved the concept with offline RL, but online learning CC, heterogeneous workloads, CC for distributed HTAP, and certified transaction schedules remain wide open.
+        </div>
+        <div class="problem-tag">Problem: Optimal CC protocol is workload-specific; no system learns it online with formal throughput guarantees</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Polyjuice: High-Performance Transactions via Learned Concurrency Control</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2021</span></div>
+          <div class="paper-summary"><strong>Foundational paper.</strong> RL agent learns when to wait, abort, or proceed for conflicting transactions; 2–4× throughput over OCC/2PL on TPC-C. Gap: offline training, single-node, no formal guarantees.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Towards Optimal Transaction Scheduling via MVSchedO</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Schedules transactions on hot keys to minimize makespan; complements learned CC with an optimal offline schedule formulation.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">SkinnerDB: Regret-Bounded Query Evaluation via RL</div>
+          <div class="paper-meta"><span class="conf-badge conf-sigmod">SIGMOD</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">RL-driven join ordering that adapts online; eliminates query optimizer; transferable to CC protocol selection.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Concurrency Control as a Service (CCaaS)</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Modularizes CC into a pluggable service with workload-adaptive protocol switching; first step toward cloud-hosted learned CC.</div>
+        </div>
+        <div class="papers-label" style="margin-top:1rem">Open Gaps in ML-Driven CC</div>
+        <div class="paper-item" style="border-color: var(--accent-green); background:#f5fff8">
+          <div class="paper-summary" style="color: var(--accent-green); font-style: normal;">① Online RL for CC without offline workload pretraining<br>② Learned CC for geo-distributed HTAP (mixed OLTP+OLAP)<br>③ Formal convergence guarantees for RL-based CC under adversarial workloads<br>④ CC protocol learning for RDMA-based NVM databases<br>⑤ Integrating LLM for CC tuning recommendation (natural language → CC config)</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">I.2</span>
+        <span class="subarea-name">Learned Query Optimizers &amp; Cardinality Estimation</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">ML models replace traditional histogram-based cardinality estimators and heuristic query planners. Learned optimizers can reduce query latency 2–10× on complex workloads.</div>
+        <div class="problem-tag">Problem: Traditional estimators error by 10⁶× on correlated predicates; RL optimizers need hours of training</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">BAOML: Making Learned Query Optimizer Production-Ready</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Bandit-based learned query optimizer; uses Thompson sampling for plan selection; 50% latency reduction in production PostgreSQL.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Lero: A Learning-to-Rank Query Optimizer</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Pairwise plan ranking model trained on execution feedback; faster convergence than full RL optimizers.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">PilotScope: Steering Databases with ML Drivers</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Framework for injecting ML models into any database engine at strategic points without modifying source code.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">I.3</span>
+        <span class="subarea-name">ML-Based Database Knob Tuning</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">RL or Bayesian optimization to auto-tune 200+ DBMS configuration parameters (buffer pool, I/O, connection pools). Replaces weeks of DBA manual tuning.</div>
+        <div class="problem-tag">Problem: 200+ knobs, non-linear interactions, different optimal configs per workload and hardware</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">GPTuner: Manual-Reading Database Tuning via GPT-Guided Bayesian Optimization</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">LLM reads documentation to identify important knobs, then Bayesian optimization tunes; reduces search space 90%.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">The Holon Approach: Tuning Multiple DB Components with ML via Proto-Actions</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Joint RL tuning of CC protocol + buffer pool + index selection in a unified action space; 30% improvement vs. siloed tuning.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">I.4</span>
+        <span class="subarea-name">ML-Driven Cluster Scheduling &amp; Resource Management</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">RL or prediction-based scheduling for GPU cluster job placement, preemption, and resource allocation. Balances fairness, SLO, and throughput simultaneously.</div>
+        <div class="problem-tag">Problem: Heterogeneous job profiles (LLM training vs. inference) require different scheduling policies</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Decima: Learning Scheduling Algorithms from Crowdsourcing</div>
+          <div class="paper-meta"><span class="conf-badge conf-sigcomm">SIGCOMM</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">GNN + RL for DAG job scheduling in Spark; 2.3× improvement over custom hand-tuned schedulers.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Mysticeti / MAST: ML-Driven SLO-Aware DNN Serving</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Prediction-based autoscaling for multi-model serving; meets 99th-percentile SLO with 2× lower resource cost.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">I.5</span>
+        <span class="subarea-name">Learned Index Structures</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">ML models replace B-trees and hash indexes by learning the CDF of key distributions. ALEX, PGM-Index, and learned spatial indexes. Open questions: updates, concurrency, adversarial keys.</div>
+        <div class="problem-tag">Problem: Learned indexes fail under key distribution shift and cannot handle concurrent writes safely</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">ALEX: An Updatable Adaptive Learned Index</div>
+          <div class="paper-meta"><span class="conf-badge conf-sigmod">SIGMOD</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Gapped array model + dynamic splitting; first updatable learned index competitive with B-tree on read-write workloads.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">DILI: A Distribution-Driven Learned Index</div>
+          <div class="paper-meta"><span class="conf-badge conf-vldb">VLDB</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Distribution-aware learned index with provable error bounds; handles arbitrary key distributions via adaptive binning.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Robustness of Updatable Learned Index Advisors Against Poisoning Attacks</div>
+          <div class="paper-meta"><span class="conf-badge conf-sigmod">SIGMOD</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Adversarial robustness analysis of learned indexes; proposes certified defense via outlier key detection.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">I.6</span>
+        <span class="subarea-name">LLM-Assisted System Optimization (DB Copilots)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">LLMs used as autonomous database administrators, query rewriters, and diagnosis agents. Interprets natural language performance goals and translates to DB configurations.</div>
+        <div class="problem-tag">Problem: LLMs hallucinate DB configurations; correctness verification of LLM-generated SQL is hard</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">D-Bot: LLM-Powered DBA Copilot</div>
+          <div class="paper-meta"><span class="conf-badge conf-sigmod">SIGMOD</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Agentic LLM for DB diagnosis: reads logs, identifies root cause, suggests configuration changes, then validates.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">NeurDB: AI-Powered Autonomous Database</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">End-to-end AI-native DBMS with learned components at every layer: storage, index, query, CC, and tuning.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Key Benchmarks</div>
+      <div class="info-item"><span class="info-dot">◆</span>TPC-C/H/DS (OLTP/OLAP)</div>
+      <div class="info-item"><span class="info-dot">◆</span>YCSB (NoSQL)</div>
+      <div class="info-item"><span class="info-dot">◆</span>JOB (Join Order Benchmark)</div>
+      <div class="info-item"><span class="info-dot">◆</span>NeurBench (learned DB components)</div>
+      <div class="info-item"><span class="info-dot">◆</span>BenchBase (DB Gym)</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Key Open Problems</div>
+      <div class="info-item"><span class="info-dot">◆</span>Online learned CC with formal throughput guarantees</div>
+      <div class="info-item"><span class="info-dot">◆</span>Learned CC for distributed multi-shard transactions</div>
+      <div class="info-item"><span class="info-dot">◆</span>Transfer learning for DB tuning across workloads</div>
+      <div class="info-item"><span class="info-dot">◆</span>Verified LLM-generated query optimizations</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN J -->
+<section id="J" class="section">
+  <div class="section-header">
+    <div class="section-id">J</div>
+    <div>
+      <div class="section-title">Systems for ML (LLM Serving &amp; Distributed Training)</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Infrastructure for training and serving large language models at scale</div>
+    </div>
+    <span class="section-badge badge-industry">■ Most Active 2023–25</span>
+  </div>
+
+  <div class="callout callout-cyan">
+    <strong>Domain Signal:</strong> This is the <strong>most paper-dense area in systems 2023–25</strong>. vLLM, DistServe, Mooncake, SGLang, and dozens of systems are publishing rapidly. Key unsolved problems: <strong>MoE routing at scale, KV-cache disaggregation, multi-modal serving, and prefill-decode latency SLOs</strong>. Highly industry-relevant but becoming saturated on basic KV-cache management.
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">J.1</span>
+        <span class="subarea-name">LLM Inference Systems &amp; KV Cache Management</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Core systems for LLM serving: KV-cache memory management (PagedAttention, prefix caching, compression), batching strategies, and scheduling for TTFT/TBT SLOs.</div>
+        <div class="problem-tag">Problem: KV cache grows O(batch×context_len); GPU HBM capacity is the primary constraint</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Efficient Memory Management for LLM Serving with PagedAttention (vLLM)</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Virtual memory + paging for KV cache; 2–4× throughput improvement; became the dominant serving framework.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">DiffKV: Differentiated Memory Management for LLMs with Parallel KV Compaction</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Different memory tiering policies per attention head based on importance; parallel background compaction.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">LoongServe: Efficient LLM Serving for Long-Context via Elastic Sequence Parallelism</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Elastic scaling of sequence parallelism for 128K+ context; adapts degree dynamically per request.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">NanoFlow: Towards Optimal LLM Serving Throughput</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Theoretical analysis of maximum serving throughput; identifies GPU compute and memory bandwidth as joint bottleneck.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">J.2</span>
+        <span class="subarea-name">Disaggregated Prefill-Decode Architecture</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Separates compute-intensive prefill from memory-intensive decode across different GPU pools. Enables independent scaling and eliminates head-of-line blocking between phases.</div>
+        <div class="problem-tag">Problem: Prefill (prompt processing) blocks decode; single-GPU architecture creates GPU underutilization</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">DistServe: Disaggregating Prefill and Decoding for Goodput-Optimized Serving</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Separate GPU pools; KV transfer over NVLink; 2–3.8× improvement in SLO attainment under real Azure traces.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Mooncake: KVCache-Centric Disaggregated LLM Serving</div>
+          <div class="paper-meta"><span class="conf-badge conf-fast">FAST</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Distributed KV cache pool shared across prefill+decode; prefix hashing avoids redundant computation.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">J.3</span>
+        <span class="subarea-name">Mixture-of-Experts (MoE) Training &amp; Serving</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Sparse MoE models (Mixtral, GPT-4, DeepSeek) require expert routing, load balancing across GPUs, and all-to-all communication. Expert placement is NP-hard.</div>
+        <div class="problem-tag">Problem: Expert imbalance causes GPU idle time; all-to-all communication is the bandwidth bottleneck</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Accelerating Distributed MoE Training and Inference with Lina</div>
+          <div class="paper-meta"><span class="conf-badge conf-atc">ATC</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Priority-based scheduling of all-to-all communication; reduces expert routing latency by 1.4×.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Expert-as-a-Service: Scalable and Robust MoE Serving</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Decouples expert placement from routing; cloud-scale MoE serving with SLA guarantees per expert group.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">SmartMoE: Efficiently Training Sparsely-Activated Models</div>
+          <div class="paper-meta"><span class="conf-badge conf-atc">ATC</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Adaptive expert placement and flexible routing strategy during training; reduces MoE training time 30%.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">J.4</span>
+        <span class="subarea-name">Speculative Decoding &amp; Inference Acceleration</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Draft-verify paradigm: small draft model generates candidate tokens; large model verifies in parallel. Achieves 2–3× speedup with identical output quality.</div>
+        <div class="problem-tag">Problem: Speculation acceptance rate depends on draft-target model alignment; draft generation adds memory overhead</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Speculative Decoding with Big Little Decoder</div>
+          <div class="paper-meta"><span class="conf-badge conf-neurips">NeurIPS</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Adaptive switching between big and small models per token; achieves 2.5× speedup with auto-regressive quality.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">TriForce: Lossless Acceleration of Long Sequence Generation with Hierarchical Speculative Decoding</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Hierarchical draft system for long-context; KV-cache retrieval + speculation achieves 2.3× for 128K context.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">J.5</span>
+        <span class="subarea-name">LLM Agent Serving Systems</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Systems for serving LLM-based agentic workflows: multi-step tool use, RAG, code execution, and branching tree search. Compound AI systems require new scheduling primitives.</div>
+        <div class="problem-tag">Problem: Unpredictable agent execution length makes SLO guarantees impossible with standard schedulers</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Parrot: Efficient Serving of LLM-based Applications with Semantic Variable</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Semantic variables link LLM calls in agent pipelines; enables prefix sharing and pipeline-level batching.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">ALTO: An Efficient Network Orchestrator for Compound AI Systems</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Network-level scheduling of agent workflows across heterogeneous LLM endpoints; reduces tail latency 40%.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Open Gaps</div>
+      <div class="info-item"><span class="info-dot">◆</span>Cross-datacenter LLM serving with geo-distributed KV</div>
+      <div class="info-item"><span class="info-dot">◆</span>Multi-modal (vision+text) serving with shared KV cache</div>
+      <div class="info-item"><span class="info-dot">◆</span>Serverless LLM inference with sub-second cold start</div>
+      <div class="info-item"><span class="info-dot">◆</span>Energy-optimal batch sizing under carbon constraints</div>
+    </div>
+    <div class="info-card">
+      <div class="info-card-title">Frameworks</div>
+      <div class="info-item"><span class="info-dot">◆</span>vLLM (most widely deployed)</div>
+      <div class="info-item"><span class="info-dot">◆</span>SGLang (structured generation)</div>
+      <div class="info-item"><span class="info-dot">◆</span>TensorRT-LLM (NVIDIA)</div>
+      <div class="info-item"><span class="info-dot">◆</span>DeepSpeed-FastGen (Microsoft)</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN K -->
+<section id="K" class="section">
+  <div class="section-header">
+    <div class="section-id">K</div>
+    <div>
+      <div class="section-title">Privacy, Security &amp; Trust in Distributed Systems</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">TEEs, formal verification, privacy-preserving protocols, and attack/defense</div>
+    </div>
+    <span class="section-badge badge-emerging">⚡ Hot</span>
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">K.1</span>
+        <span class="subarea-name">Trusted Execution Environments (TEE) for ML</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Running ML training/inference inside Intel SGX, AMD SEV, ARM TrustZone, or NVIDIA H100 Confidential Computing. Ensures model confidentiality and data privacy in cloud.</div>
+        <div class="problem-tag">Problem: TEE memory limit (EPC size) forces model offloading; side-channel attacks leak via cache timing</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Gramine-SGX: A Universal Library OS for Unmodified Apps in SGX</div>
+          <div class="paper-meta"><span class="conf-badge conf-atc">ATC</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Run unmodified PyTorch/TensorFlow inside SGX without code changes; near-native performance via DCAP attestation.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Parfait: Modular Verification of Secure and Leakage-Free Systems</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Formal verification framework for hardware security modules; proves no timing side channels from spec to circuit.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Analysis and Optimization of Network I/O Tax in Confidential VMs</div>
+          <div class="paper-meta"><span class="conf-badge conf-atc">ATC</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Characterizes network overhead in AMD SEV-SNP confidential VMs; proposes I/O encryption offload to reduce 30% overhead.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">K.2</span>
+        <span class="subarea-name">Privacy-Preserving ML (Inference &amp; Training)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Combining DP, MPC, and TEE for private ML pipelines. Gradient inversion attacks motivate defenses; private inference systems enable cloud ML without data exposure.</div>
+        <div class="problem-tag">Problem: Gradient inversion can reconstruct private training images from shared gradients in FL</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Tiptoe: Private Web Search</div>
+          <div class="paper-meta"><span class="conf-badge conf-sosp">SOSP</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Private information retrieval over 100M documents; cryptographic PIR reveals nothing to server; no trusted hardware required.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Acorn: Input Validation for Secure Aggregation in Federated Learning</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">USENIX Sec</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Validates client gradient norms before aggregation inside MPC; prevents model poisoning while preserving aggregation privacy.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">K.3</span>
+        <span class="subarea-name">ML Model Watermarking &amp; Membership Inference</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Detecting data membership in training sets (privacy auditing) and model IP protection via watermarking. Active area for regulatory compliance (GDPR, copyright).</div>
+        <div class="problem-tag">Problem: Membership inference is the primary threat to FL; watermark removal via fine-tuning is trivial</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Enhanced Membership Inference Attacks against Machine Learning Models</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">CCS</span><span class="paper-year">2022</span></div>
+          <div class="paper-summary">Likelihood ratio attack achieves near-perfect membership inference on overfitted models; sets new attack bar.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Unlearnable Examples: Making Personal Data Unexploitable</div>
+          <div class="paper-meta"><span class="conf-badge conf-iclr">ICLR</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Adds imperceptible perturbations to images before uploading to cloud; model trained on them achieves near-random accuracy.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="info-grid">
+    <div class="info-card">
+      <div class="info-card-title">Open Research Gaps</div>
+      <div class="info-item"><span class="info-dot">◆</span>TEE-based FL with GPU acceleration (H100 CC + FL)</div>
+      <div class="info-item"><span class="info-dot">◆</span>Formal DP guarantees for RLHF with human feedback</div>
+      <div class="info-item"><span class="info-dot">◆</span>Efficient ZK proofs for FL model verification</div>
+      <div class="info-item"><span class="info-dot">◆</span>Practical secure aggregation at 1M+ client scale</div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ DOMAIN L -->
+<section id="L" class="section">
+  <div class="section-header">
+    <div class="section-id">L</div>
+    <div>
+      <div class="section-title">Emerging Areas</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">LLM agents, decentralized AI, digital twins, neuromorphic, quantum</div>
+    </div>
+    <span class="section-badge badge-emerging">▲ Frontier (Low Saturation)</span>
+  </div>
+
+  <div class="subareas-grid">
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">L.1</span>
+        <span class="subarea-name">LLM Agents as OS / System Schedulers</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Using LLM reasoning to dynamically schedule jobs, reconfigure systems, and act as autonomous SRE (Site Reliability Engineers). "AI-native" operating systems. Nascent area with 2024–25 papers beginning to appear.</div>
+        <div class="problem-tag">Problem: LLM inference latency (100ms–1s) is too slow for OS-level scheduling decisions; reliability is unverified</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">SysGPT: LLM-Based Performance Analysis for OS/Storage Optimization</div>
+          <div class="paper-meta"><span class="conf-badge conf-osdi">OSDI</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Fine-tuned LLM on systems papers; generates context-aware optimization recommendations for file/kernel systems.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">Barbarians at the Gate: How AI is Upending Systems Research</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Position paper on LLM implications for OS design; argues for AI-co-designed kernels and system software.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">L.2</span>
+        <span class="subarea-name">Digital Twins &amp; Simulation-Driven Systems</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Digital twins of distributed systems, networks, and data centers for predictive optimization. Simulation engines that mirror production behavior for testing, scheduling, and anomaly prediction.</div>
+        <div class="problem-tag">Problem: Real-time synchronization between physical system and digital twin; model accuracy degrades under distribution shift</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Lumos: Performance Modeling and Estimation for Large-Scale LLM Training</div>
+          <div class="paper-meta"><span class="conf-badge conf-mlsys">MLSys</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Digital twin of LLM training pipelines; models communication, compute, and memory to predict training performance before actual run.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">L.3</span>
+        <span class="subarea-name">Decentralized AI (Training without Central Server)</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Fully decentralized training over peer-to-peer networks (gossip-based FL, swarm learning). Removes the single point of failure of the parameter server. Bittensor, Petals, and academic systems.</div>
+        <div class="problem-tag">Problem: Decentralized convergence is 10–100× slower than centralized; Byzantine robustness is harder without central aggregation</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Petals: Collaborative Inference and Fine-tuning of Large Models</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">ACL</span><span class="paper-year">2023</span></div>
+          <div class="paper-summary">Distributes LLM layers across volunteer machines in a P2P network; users run inference by routing through the "swarm".</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">DiLoCo: Distributed Low-Communication Training of Large Language Models</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Islands of workers train locally; outer optimizer (FedOpt) aggregates across islands every 500 steps; 500× less communication.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="subarea-card">
+      <div class="subarea-header" onclick="toggleCard(this.parentElement)">
+        <span class="subarea-num">L.4</span>
+        <span class="subarea-name">Test-Time Scaling &amp; Reasoning Infrastructure</span>
+        <span class="toggle-icon">▶</span>
+      </div>
+      <div class="subarea-body">
+        <div class="subarea-desc">Systems for compute-intensive test-time search (MCTS, beam search, verifier-guided generation). Chain-of-thought, o1-style reasoning models require 10–1000× more inference compute than standard generation.</div>
+        <div class="problem-tag">Problem: Tree-search inference patterns break sequential KV-cache assumptions; token budgets are unpredictable</div>
+        <div class="papers-label">Representative Papers</div>
+        <div class="paper-item">
+          <div class="paper-title">Efficiently Serving LLM Reasoning Programs with Certaindex</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2024</span></div>
+          <div class="paper-summary">Index-based difficulty estimation of reasoning queries; allocates compute budgets dynamically before generation starts.</div>
+        </div>
+        <div class="paper-item">
+          <div class="paper-title">The Cost of Dynamic Reasoning: Demystifying AI Agents and Test-Time Scaling</div>
+          <div class="paper-meta"><span class="conf-badge conf-arxiv">arXiv</span><span class="paper-year">2025</span></div>
+          <div class="paper-summary">Infrastructure analysis of test-time compute costs; identifies memory hierarchy and scheduling as key bottlenecks.</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ RESEARCH MAP -->
+<section id="map" class="section">
+  <div class="section-header">
+    <div class="section-id">∞</div>
+    <div>
+      <div class="section-title">Research Connection Map</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Cross-domain synergies, saturation analysis, and strategic positioning</div>
+    </div>
+  </div>
+
+  <div class="map-container">
+    <div class="map-grid">
+      <div class="map-node sat">
+        <span class="map-node-id">B</span>
+        <span class="map-node-name">Parallel<br>Computing</span>
+      </div>
+      <div class="map-node hot" style="border-color:var(--accent-amber)">
+        <span class="map-node-id">J</span>
+        <span class="map-node-name">Systems<br>for ML</span>
+      </div>
+      <div class="map-node hot" style="border-color:var(--accent-amber)">
+        <span class="map-node-id">I</span>
+        <span class="map-node-name">ML<br>for Systems</span>
+      </div>
+      <div class="map-node emerging">
+        <span class="map-node-id">G</span>
+        <span class="map-node-name">Crypto<br>Acceleration</span>
+      </div>
+      <div class="map-node sat">
+        <span class="map-node-id">C</span>
+        <span class="map-node-name">Distributed<br>Systems</span>
+      </div>
+      <div class="map-node hot" style="border-color:var(--accent-amber)">
+        <span class="map-node-id">H</span>
+        <span class="map-node-name">RL/DL<br>Parallelism</span>
+      </div>
+      <div class="map-node hot" style="border-color:var(--accent-amber)">
+        <span class="map-node-id">A</span>
+        <span class="map-node-name">Federated<br>Learning</span>
+      </div>
+      <div class="map-node emerging">
+        <span class="map-node-id">D</span>
+        <span class="map-node-name">Blockchain<br>/ Web3</span>
+      </div>
+      <div class="map-node industry">
+        <span class="map-node-id">F</span>
+        <span class="map-node-name">Hardware<br>Acceleration</span>
+      </div>
+      <div class="map-node industry">
+        <span class="map-node-id">K</span>
+        <span class="map-node-name">Privacy &amp;<br>Security</span>
+      </div>
+      <div class="map-node hot" style="border-color:var(--accent-amber)">
+        <span class="map-node-id">E</span>
+        <span class="map-node-name">Edge<br>Computing</span>
+      </div>
+      <div class="map-node emerging">
+        <span class="map-node-id">L</span>
+        <span class="map-node-name">Emerging<br>Areas</span>
+      </div>
+    </div>
+
+    <div class="map-legend">
+      <div class="legend-item"><div class="legend-dot" style="border-color:var(--tag-sat-border); background:var(--tag-sat)"></div> Saturated (many papers, incremental gains)</div>
+      <div class="legend-item"><div class="legend-dot" style="border-color:var(--accent-amber); background:rgba(245,166,35,0.1)"></div> Hot (high activity, significant opportunity)</div>
+      <div class="legend-item"><div class="legend-dot" style="border-color:var(--tag-industry-border); background:var(--tag-industry)"></div> Industry-dominant (hard to publish without industrial access)</div>
+      <div class="legend-item"><div class="legend-dot" style="border-color:var(--tag-emerging-border); background:var(--tag-emerging)"></div> Emerging (low competition, high impact potential)</div>
+    </div>
+  </div>
+
+  <h3>Key Cross-Domain Synergies</h3>
+  <table class="gap-table">
+    <thead>
+      <tr><th>Intersection</th><th>Why Synergistic</th><th>Status</th><th>Best Venue</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="gap-area">A (FL) + E (Edge) + K (Privacy)</td>
+        <td>FL naturally deployed at edge; privacy protections (DP, MPC, TEE) are mandatory for medical/financial FL</td>
+        <td><span class="status-pill s-hot">⚡ HOT</span></td>
+        <td>MLSys, NSDI, NeurIPS</td>
+      </tr>
+      <tr>
+        <td class="gap-area">I (ML4Sys) + C (Dist. Sys)</td>
+        <td>Learned CC for distributed transactions (Polyjuice follow-up); ML-driven replication, partitioning</td>
+        <td><span class="status-pill s-emerge">★ WIDE OPEN</span></td>
+        <td>OSDI, VLDB, SIGMOD</td>
+      </tr>
+      <tr>
+        <td class="gap-area">G (Crypto) + A (FL) + D (Blockchain)</td>
+        <td>Verifiable FL aggregation via ZKP; blockchain-based incentive for FL; FHE-encrypted model training</td>
+        <td><span class="status-pill s-emerge">★ WIDE OPEN</span></td>
+        <td>IEEE S&P, CCS, USENIX</td>
+      </tr>
+      <tr>
+        <td class="gap-area">H (RL) + J (Systems for ML)</td>
+        <td>Distributed RLHF infrastructure; efficient PPO pipeline for LLM alignment at scale</td>
+        <td><span class="status-pill s-hot">⚡ HOT</span></td>
+        <td>MLSys, OSDI, NeurIPS</td>
+      </tr>
+      <tr>
+        <td class="gap-area">F (HW) + G (Crypto)</td>
+        <td>NTT hardware shared between FHE and PQC; GPU/FPGA prover acceleration for ZK rollups</td>
+        <td><span class="status-pill s-emerge">▲ EMERGING</span></td>
+        <td>HPCA, ISCA, TCHES</td>
+      </tr>
+      <tr>
+        <td class="gap-area">L (Emerging) + C (Dist. Sys)</td>
+        <td>LLM agents as autonomous schedulers/SREs; test-time compute requires new scheduling primitives</td>
+        <td><span class="status-pill s-emerge">▲ FRONTIER</span></td>
+        <td>HotOS, OSDI, arXiv</td>
+      </tr>
+      <tr>
+        <td class="gap-area">B (Parallel) + G (Crypto)</td>
+        <td>Multi-GPU parallel proof generation; distributed FHE computation across GPU clusters</td>
+        <td><span class="status-pill s-emerge">★ WIDE OPEN</span></td>
+        <td>SC, HPCA, IEEE S&P</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>Strategic Positioning: What to Avoid vs. Pursue</h3>
+  <div class="callout" style="border-color: var(--accent-red); background:#fff5f7">
+    <strong style="color:var(--accent-red)">Avoid (Saturated):</strong> Basic KV-cache management for LLM serving (dozens of papers), simple FedAvg variants for non-IID data, GPU kernel optimization without architectural novelty, another Bitcoin-style blockchain paper, standard BERT fine-tuning at edge.
+  </div>
+  <div class="callout callout-green">
+    <strong>Pursue (High Opportunity):</strong><br>
+    ① <strong>Online ML-driven Concurrency Control for distributed HTAP</strong> — 1 foundational paper (Polyjuice), huge space<br>
+    ② <strong>Distributed GPU acceleration of FHE for private LLM inference</strong> — hardware + crypto + ML intersection<br>
+    ③ <strong>Federated RLHF with verifiable reward aggregation</strong> — RLHF + FL + ZKP<br>
+    ④ <strong>Test-time compute scaling systems (reasoning model infrastructure)</strong> — brand new, no established systems<br>
+    ⑤ <strong>Decentralized FL over P2P with Byzantine robustness and formal convergence</strong> — bridges B + A + D
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════ READING ROADMAP -->
+<section id="roadmap" class="section">
+  <div class="section-header">
+    <div class="section-id">→</div>
+    <div>
+      <div class="section-title">Reading Roadmap for PhD Students</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">A structured 6-month reading plan organized by depth and dependency</div>
+    </div>
+  </div>
+
+  <div class="callout callout-cyan">
+    <strong>How to use:</strong> Follow this roadmap in sequence. Months 1–2 build foundations, 3–4 cover the frontier, 5–6 identify your specific research gap. Each step lists 2–4 "anchor papers" — papers that are essential to understand the state-of-the-art.
+  </div>
+
+  <div class="roadmap">
+
+    <div class="roadmap-step">
+      <div class="step-num">1</div>
+      <div class="step-content">
+        <div class="step-title">Month 1A — Distributed Systems Foundations</div>
+        <div class="step-desc">Before reading any 2022–25 paper, understand the core systems abstractions: consensus, transactions, replication, and scheduling. These are prerequisites.</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">Lamport Paxos (1998)</span>
+          <span class="step-paper-chip">Spanner (OSDI '12)</span>
+          <span class="step-paper-chip">FaRM (NSDI '14)</span>
+          <span class="step-paper-chip">Raft (ATC '14)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-num">2</div>
+      <div class="step-content">
+        <div class="step-title">Month 1B — ML Systems Foundations</div>
+        <div class="step-desc">Understand the fundamentals of distributed DNN training: data/model/pipeline parallelism, gradient communication, and the GPU memory wall. Read in order.</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">Megatron-LM (SC '21)</span>
+          <span class="step-paper-chip">Alpa (OSDI '22)</span>
+          <span class="step-paper-chip">FlashAttention-2 (ICLR '24)</span>
+          <span class="step-paper-chip">DeepSpeed ZeRO</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-num">3</div>
+      <div class="step-content">
+        <div class="step-title">Month 2A — LLM Serving Systems (Domain J)</div>
+        <div class="step-desc">Read the LLM serving stack from scheduling to memory. These 4 papers define the current state of the art and contain most of the open problems in the field.</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">vLLM / PagedAttention (SOSP '23)</span>
+          <span class="step-paper-chip">DistServe (OSDI '24)</span>
+          <span class="step-paper-chip">Mooncake (FAST '25)</span>
+          <span class="step-paper-chip">Llumnix (OSDI '24)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-num">4</div>
+      <div class="step-content">
+        <div class="step-title">Month 2B — Federated Learning Systems (Domain A)</div>
+        <div class="step-desc">Understand FL from algorithmic foundations to real deployments. Focus on system papers (PAPAYA, FedScale) alongside ML papers (FLoRA, FedProto).</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">FedAvg (2017)</span>
+          <span class="step-paper-chip">PAPAYA (MLSys '22)</span>
+          <span class="step-paper-chip">FedScale (ICML '22)</span>
+          <span class="step-paper-chip">FLoRA (ICML '24)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-num">5</div>
+      <div class="step-content">
+        <div class="step-title">Month 3A — ML for Systems (Domain I — Critical)</div>
+        <div class="step-desc">This is a thesis-opportunity-rich domain. Read the foundational ML4DB papers and, critically, Polyjuice — the most underexplored important paper in the space.</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">Polyjuice CC (OSDI '21)</span>
+          <span class="step-paper-chip">MVSchedO (VLDB '24)</span>
+          <span class="step-paper-chip">Lero optimizer (VLDB '23)</span>
+          <span class="step-paper-chip">GPTuner (VLDB '24)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-num">6</div>
+      <div class="step-content">
+        <div class="step-title">Month 3B — Hardware &amp; Crypto Acceleration (Domains F, G)</div>
+        <div class="step-desc">Understand GPU architecture for ML, then move to the emerging area of crypto acceleration. The intersection (GPU FHE) is the least-explored high-impact area.</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">FlashAttention-3 (NeurIPS '24)</span>
+          <span class="step-paper-chip">BTS FHE ASIC (ISCA '22)</span>
+          <span class="step-paper-chip">Phantom GPU FHE (arXiv '24)</span>
+          <span class="step-paper-chip">cuZK MSM (TPDS '23)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-num">7</div>
+      <div class="step-content">
+        <div class="step-title">Month 4A — RLHF &amp; Distributed RL (Domain H)</div>
+        <div class="step-desc">Critical for understanding the next wave of LLM training. Read OpenRLHF and ReaLHF as the primary systems papers, then understand the RL algorithms (PPO, GRPO).</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">OpenRLHF (arXiv '24)</span>
+          <span class="step-paper-chip">ReaLHF (MLSys '24)</span>
+          <span class="step-paper-chip">Oobleck (SOSP '23)</span>
+          <span class="step-paper-chip">Gemini checkpointing (SOSP '23)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-num">8</div>
+      <div class="step-content">
+        <div class="step-title">Month 4B — Privacy &amp; Security in Distributed ML (Domain K)</div>
+        <div class="step-desc">Understand the threat models for FL and distributed ML. Focus on gradient inversion, Byzantine robustness, and TEE-based solutions. These inform privacy-aware system design.</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">FLTrust (NeurIPS '22)</span>
+          <span class="step-paper-chip">FLAME (USENIX Sec '22)</span>
+          <span class="step-paper-chip">MPCFormer (ICLR '23)</span>
+          <span class="step-paper-chip">Parfait (SOSP '24)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-num">9</div>
+      <div class="step-content">
+        <div class="step-title">Month 5 — Emerging Areas &amp; Intersection Exploration (Domains D, L)</div>
+        <div class="step-desc">Survey the frontier. Read position papers (HotOS, HotNets) and early arXiv papers on LLM agents, decentralized AI, and test-time scaling. Identify your gap.</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">DiLoCo decentralized (arXiv '24)</span>
+          <span class="step-paper-chip">Pianist distributed ZKP (S&P '24)</span>
+          <span class="step-paper-chip">SysGPT (OSDI '25)</span>
+          <span class="step-paper-chip">EZKL zkML (arXiv '23)</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="roadmap-step">
+      <div class="step-num">10</div>
+      <div class="step-content">
+        <div class="step-title">Month 6 — Gap Identification &amp; Problem Formulation</div>
+        <div class="step-desc">By now, you should see 2–3 concrete research gaps. For each gap: write a 1-page problem statement, identify the evaluation metrics, find the relevant benchmark, and identify 1 faculty advisor working in that space. Use the intersection table in the Research Map tab as your guide.</div>
+        <div class="step-papers">
+          <span class="step-paper-chip">Write gap analysis memo</span>
+          <span class="step-paper-chip">Reproduce 1 baseline system</span>
+          <span class="step-paper-chip">Attend OSDI/SOSP talk sessions</span>
+          <span class="step-paper-chip">Submit to HotOS workshop</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <hr class="section-divider">
+
+  <h3>Recommended Thesis Directions (Ranked by Opportunity)</h3>
+  <table class="gap-table">
+    <thead>
+      <tr><th>Rank</th><th>Thesis Direction</th><th>Gap Score</th><th>Difficulty</th><th>Venue Target</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong style="color:var(--accent-green)">1</strong></td>
+        <td class="gap-area">Online Learned Concurrency Control for Distributed HTAP (I+C)</td>
+        <td>★★★★★</td>
+        <td>High</td>
+        <td>OSDI, SIGMOD</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--accent-green)">2</strong></td>
+        <td class="gap-area">Distributed GPU Acceleration of FHE for Private LLM Inference (G+J+F)</td>
+        <td>★★★★★</td>
+        <td>Very High</td>
+        <td>HPCA, USENIX Sec</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--accent-cyan)">3</strong></td>
+        <td class="gap-area">Federated RLHF with Verifiable Reward Aggregation (A+H+K)</td>
+        <td>★★★★☆</td>
+        <td>High</td>
+        <td>MLSys, NeurIPS</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--accent-cyan)">4</strong></td>
+        <td class="gap-area">Systems for Reasoning Model Serving (Test-Time Compute Scaling) (J+L)</td>
+        <td>★★★★☆</td>
+        <td>Medium</td>
+        <td>OSDI, SOSP</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--accent-blue)">5</strong></td>
+        <td class="gap-area">Efficient Federated Fine-Tuning of LLMs at Edge (A+E)</td>
+        <td>★★★★☆</td>
+        <td>Medium</td>
+        <td>MLSys, NSDI</td>
+      </tr>
+      <tr>
+        <td><strong style="color:var(--accent-blue)">6</strong></td>
+        <td class="gap-area">Multi-GPU Parallel ZK Proof Generation for Blockchain ML (G+D+B)</td>
+        <td>★★★★☆</td>
+        <td>High</td>
+        <td>SC, IEEE S&P</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<div class="doc-footer">
+  PhD Research Navigator v1.0 · Parallel &amp; Distributed Systems 2022–2025<br>
+  Covers 12 domains · ~120 sub-areas · 80+ representative papers from OSDI, SOSP, NSDI, VLDB, SIGMOD, NeurIPS, ICML, MLSys, SC, ASPLOS, EuroSys, HPCA
+</div>
+
+<script>
+  function showSection(id) {
+    document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
+    document.querySelectorAll('.nav-tab').forEach(t => t.classList.remove('active'));
+    const section = document.getElementById(id);
+    if (section) { section.classList.add('active'); section.scrollIntoView({behavior:'smooth',block:'start'}); }
+    const tabs = document.querySelectorAll('.nav-tab');
+    tabs.forEach(t => { if (t.textContent.includes(id) || (id==='overview' && t.textContent==='Overview') || (id==='map' && t.textContent==='Research Map') || (id==='roadmap' && t.textContent==='Reading Roadmap')) t.classList.add('active'); });
+  }
+
+  function toggleCard(card) {
+    card.classList.toggle('expanded');
+  }
+
+  // Make all cards expanded by default on mobile for better usability
+  if (window.innerWidth < 600) {
+    document.querySelectorAll('.subarea-card').forEach(c => c.classList.add('expanded'));
+  }
+</script>
+</body>
+</html>
