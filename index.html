@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PhD Research Navigator 2022–2025 | Parallel & Distributed Systems</title>
+<title>Research Landscape — Parallel & Distributed Systems | PhD Proposal</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@300;400;600&family=Syne:wght@400;600;700;800&family=Syne+Mono&display=swap');
 
@@ -602,12 +602,13 @@
 <body>
 
 <header class="header">
-  <div class="header-title">⬡ PhD Research Navigator // Parallel &amp; Distributed Systems</div>
-  <div class="header-meta">2022–2025 · Top Venues Only · v1.0</div>
+  <div class="header-title">⬡ Research Landscape // Parallel &amp; Distributed Systems</div>
+  <div class="header-meta">2022–2025 · Proposal Draft · PhD Inquiry</div>
 </header>
 
 <nav class="nav-tabs">
   <button class="nav-tab active" onclick="showSection('overview')">Overview</button>
+  <button class="nav-tab" onclick="showSection('map')">Research Map</button>
   <button class="nav-tab" onclick="showSection('A')">A. Federated Learning</button>
   <button class="nav-tab" onclick="showSection('B')">B. Parallel Computing</button>
   <button class="nav-tab" onclick="showSection('C')">C. Distributed Systems</button>
@@ -620,8 +621,6 @@
   <button class="nav-tab" onclick="showSection('J')">J. Systems for ML</button>
   <button class="nav-tab" onclick="showSection('K')">K. Privacy &amp; Security</button>
   <button class="nav-tab" onclick="showSection('L')">L. Emerging Areas</button>
-  <button class="nav-tab" onclick="showSection('map')">Research Map</button>
-  <button class="nav-tab" onclick="showSection('roadmap')">Reading Roadmap</button>
 </nav>
 
 <!-- ═══════════════════════════════════════════════════ OVERVIEW -->
@@ -629,13 +628,13 @@
   <div class="section-header">
     <div class="section-id">00</div>
     <div>
-      <div class="section-title">Landscape Overview</div>
-      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Top venues · 2022–2025 · 12 Domains · ~120 Sub-areas</div>
+      <div class="section-title">Research Landscape Overview</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Top venues · 2022–2025 · 12 Domains · ~120 Sub-areas · PhD Inquiry Proposal</div>
     </div>
   </div>
 
   <div class="callout callout-cyan">
-    <strong>Purpose:</strong> This navigator maps the entire research landscape across 12 high-level domains relevant to a PhD in parallel computing, distributed systems, and ML systems. Each tab covers a domain with fine-grained sub-areas, representative papers from top venues (OSDI, SOSP, NSDI, VLDB, SIGMOD, NeurIPS, ICML, MLSys, SC, EuroSys, ASPLOS, HPCA), open problems, benchmarks, and frameworks. Use the <strong>Research Map</strong> tab for cross-domain connections and the <strong>Reading Roadmap</strong> for a suggested reading order.
+    <strong>Intent:</strong> This document maps the research landscape across 12 high-level domains relevant to a PhD inquiry in parallel computing, distributed systems, and ML systems. The goal over the next 1–1.5 months is to develop <strong>3–5 well-reasoned problem statements</strong> — each grounded in a concrete gap, a motivating prior work, and a plausible direction — and then <strong>seek the advisor's guidance to converge on a particular direction worth pursuing</strong>. Each domain tab surveys fine-grained sub-areas, representative papers from top venues (OSDI, SOSP, NSDI, VLDB, SIGMOD, NeurIPS, ICML, MLSys, SC, EuroSys, ASPLOS, HPCA), and open problems. The <strong>Research Map</strong> tab highlights cross-domain connections and candidate problem areas.
   </div>
 
   <table class="gap-table">
@@ -644,7 +643,7 @@
         <th>Domain</th>
         <th>Status</th>
         <th>Key Trend 2024–25</th>
-        <th>Best Venue</th>
+        <th>Potentially Relevant Venues</th>
         <th>Open Problem Score</th>
       </tr>
     </thead>
@@ -736,12 +735,6 @@
     </tbody>
   </table>
 
-  <div class="callout">
-    <strong>Three Highest-Opportunity Intersections for a PhD Thesis (2025):</strong><br>
-    1. <strong>ML-driven Concurrency Control + Distributed Transactions</strong> — Very few systems-level papers; Polyjuice (OSDI '21) remains largely unextended. Gap: online-learning CC for heterogeneous workloads.<br>
-    2. <strong>Federated Learning + Edge Inference for LLMs</strong> — Open: communication-efficient fine-tuning of billion-parameter models across mobile/edge devices.<br>
-    3. <strong>Parallel Acceleration of FHE/ZKP</strong> — GPU FHE provers exist (Phantom, etc.) but integration with distributed ML pipelines is wide open.
-  </div>
 </section>
 
 <!-- ═══════════════════════════════════════════════════ DOMAIN A -->
@@ -2732,7 +2725,7 @@
     <div class="section-id">∞</div>
     <div>
       <div class="section-title">Research Connection Map</div>
-      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Cross-domain synergies, saturation analysis, and strategic positioning</div>
+      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">Cross-domain synergies, saturation signals, and potential positioning</div>
     </div>
   </div>
 
@@ -2847,189 +2840,24 @@
     </tbody>
   </table>
 
-  <h3>Strategic Positioning: What to Avoid vs. Pursue</h3>
+  <h3>Potential Areas Worth Investigating vs. Areas Likely Saturated</h3>
   <div class="callout" style="border-color: var(--accent-red); background:#fff5f7">
-    <strong style="color:var(--accent-red)">Avoid (Saturated):</strong> Basic KV-cache management for LLM serving (dozens of papers), simple FedAvg variants for non-IID data, GPU kernel optimization without architectural novelty, another Bitcoin-style blockchain paper, standard BERT fine-tuning at edge.
-  </div>
-  <div class="callout callout-green">
-    <strong>Pursue (High Opportunity):</strong><br>
-    ① <strong>Online ML-driven Concurrency Control for distributed HTAP</strong> — 1 foundational paper (Polyjuice), huge space<br>
-    ② <strong>Distributed GPU acceleration of FHE for private LLM inference</strong> — hardware + crypto + ML intersection<br>
-    ③ <strong>Federated RLHF with verifiable reward aggregation</strong> — RLHF + FL + ZKP<br>
-    ④ <strong>Test-time compute scaling systems (reasoning model infrastructure)</strong> — brand new, no established systems<br>
-    ⑤ <strong>Decentralized FL over P2P with Byzantine robustness and formal convergence</strong> — bridges B + A + D
-  </div>
-</section>
-
-<!-- ═══════════════════════════════════════════════════ READING ROADMAP -->
-<section id="roadmap" class="section">
-  <div class="section-header">
-    <div class="section-id">→</div>
-    <div>
-      <div class="section-title">Reading Roadmap for PhD Students</div>
-      <div style="font-size:12px;color:var(--text-secondary);margin-top:4px">A structured 6-month reading plan organized by depth and dependency</div>
-    </div>
+    <strong style="color:var(--accent-red)">Potentially Crowded (may be difficult to contribute):</strong> Basic KV-cache management for LLM serving (dozens of papers), simple FedAvg variants for non-IID data, GPU kernel optimization without architectural novelty, another Bitcoin-style blockchain paper, standard BERT fine-tuning at edge.
   </div>
 
-  <div class="callout callout-cyan">
-    <strong>How to use:</strong> Follow this roadmap in sequence. Months 1–2 build foundations, 3–4 cover the frontier, 5–6 identify your specific research gap. Each step lists 2–4 "anchor papers" — papers that are essential to understand the state-of-the-art.
+  <h3>Candidate Problem Areas (Ranked by Apparent Opportunity)</h3>
+  <div class="callout callout-cyan" style="margin-bottom:1rem">
+    <strong>Goal:</strong> These represent potential starting points for 3–5 problem statements to be developed over the next 1–1.5 months. Each is grounded in a cross-domain gap, an anchor paper that defines current best practice, and an open angle that appears tractable. Rankings reflect apparent gap size, not prescriptive priority.
   </div>
-
-  <div class="roadmap">
-
-    <div class="roadmap-step">
-      <div class="step-num">1</div>
-      <div class="step-content">
-        <div class="step-title">Month 1A — Distributed Systems Foundations</div>
-        <div class="step-desc">Before reading any 2022–25 paper, understand the core systems abstractions: consensus, transactions, replication, and scheduling. These are prerequisites.</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">Lamport Paxos (1998)</span>
-          <span class="step-paper-chip">Spanner (OSDI '12)</span>
-          <span class="step-paper-chip">FaRM (NSDI '14)</span>
-          <span class="step-paper-chip">Raft (ATC '14)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-step">
-      <div class="step-num">2</div>
-      <div class="step-content">
-        <div class="step-title">Month 1B — ML Systems Foundations</div>
-        <div class="step-desc">Understand the fundamentals of distributed DNN training: data/model/pipeline parallelism, gradient communication, and the GPU memory wall. Read in order.</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">Megatron-LM (SC '21)</span>
-          <span class="step-paper-chip">Alpa (OSDI '22)</span>
-          <span class="step-paper-chip">FlashAttention-2 (ICLR '24)</span>
-          <span class="step-paper-chip">DeepSpeed ZeRO</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-step">
-      <div class="step-num">3</div>
-      <div class="step-content">
-        <div class="step-title">Month 2A — LLM Serving Systems (Domain J)</div>
-        <div class="step-desc">Read the LLM serving stack from scheduling to memory. These 4 papers define the current state of the art and contain most of the open problems in the field.</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">vLLM / PagedAttention (SOSP '23)</span>
-          <span class="step-paper-chip">DistServe (OSDI '24)</span>
-          <span class="step-paper-chip">Mooncake (FAST '25)</span>
-          <span class="step-paper-chip">Llumnix (OSDI '24)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-step">
-      <div class="step-num">4</div>
-      <div class="step-content">
-        <div class="step-title">Month 2B — Federated Learning Systems (Domain A)</div>
-        <div class="step-desc">Understand FL from algorithmic foundations to real deployments. Focus on system papers (PAPAYA, FedScale) alongside ML papers (FLoRA, FedProto).</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">FedAvg (2017)</span>
-          <span class="step-paper-chip">PAPAYA (MLSys '22)</span>
-          <span class="step-paper-chip">FedScale (ICML '22)</span>
-          <span class="step-paper-chip">FLoRA (ICML '24)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-step">
-      <div class="step-num">5</div>
-      <div class="step-content">
-        <div class="step-title">Month 3A — ML for Systems (Domain I — Critical)</div>
-        <div class="step-desc">This is a thesis-opportunity-rich domain. Read the foundational ML4DB papers and, critically, Polyjuice — the most underexplored important paper in the space.</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">Polyjuice CC (OSDI '21)</span>
-          <span class="step-paper-chip">MVSchedO (VLDB '24)</span>
-          <span class="step-paper-chip">Lero optimizer (VLDB '23)</span>
-          <span class="step-paper-chip">GPTuner (VLDB '24)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-step">
-      <div class="step-num">6</div>
-      <div class="step-content">
-        <div class="step-title">Month 3B — Hardware &amp; Crypto Acceleration (Domains F, G)</div>
-        <div class="step-desc">Understand GPU architecture for ML, then move to the emerging area of crypto acceleration. The intersection (GPU FHE) is the least-explored high-impact area.</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">FlashAttention-3 (NeurIPS '24)</span>
-          <span class="step-paper-chip">BTS FHE ASIC (ISCA '22)</span>
-          <span class="step-paper-chip">Phantom GPU FHE (arXiv '24)</span>
-          <span class="step-paper-chip">cuZK MSM (TPDS '23)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-step">
-      <div class="step-num">7</div>
-      <div class="step-content">
-        <div class="step-title">Month 4A — RLHF &amp; Distributed RL (Domain H)</div>
-        <div class="step-desc">Critical for understanding the next wave of LLM training. Read OpenRLHF and ReaLHF as the primary systems papers, then understand the RL algorithms (PPO, GRPO).</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">OpenRLHF (arXiv '24)</span>
-          <span class="step-paper-chip">ReaLHF (MLSys '24)</span>
-          <span class="step-paper-chip">Oobleck (SOSP '23)</span>
-          <span class="step-paper-chip">Gemini checkpointing (SOSP '23)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-step">
-      <div class="step-num">8</div>
-      <div class="step-content">
-        <div class="step-title">Month 4B — Privacy &amp; Security in Distributed ML (Domain K)</div>
-        <div class="step-desc">Understand the threat models for FL and distributed ML. Focus on gradient inversion, Byzantine robustness, and TEE-based solutions. These inform privacy-aware system design.</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">FLTrust (NeurIPS '22)</span>
-          <span class="step-paper-chip">FLAME (USENIX Sec '22)</span>
-          <span class="step-paper-chip">MPCFormer (ICLR '23)</span>
-          <span class="step-paper-chip">Parfait (SOSP '24)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-step">
-      <div class="step-num">9</div>
-      <div class="step-content">
-        <div class="step-title">Month 5 — Emerging Areas &amp; Intersection Exploration (Domains D, L)</div>
-        <div class="step-desc">Survey the frontier. Read position papers (HotOS, HotNets) and early arXiv papers on LLM agents, decentralized AI, and test-time scaling. Identify your gap.</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">DiLoCo decentralized (arXiv '24)</span>
-          <span class="step-paper-chip">Pianist distributed ZKP (S&P '24)</span>
-          <span class="step-paper-chip">SysGPT (OSDI '25)</span>
-          <span class="step-paper-chip">EZKL zkML (arXiv '23)</span>
-        </div>
-      </div>
-    </div>
-
-    <div class="roadmap-step">
-      <div class="step-num">10</div>
-      <div class="step-content">
-        <div class="step-title">Month 6 — Gap Identification &amp; Problem Formulation</div>
-        <div class="step-desc">By now, you should see 2–3 concrete research gaps. For each gap: write a 1-page problem statement, identify the evaluation metrics, find the relevant benchmark, and identify 1 faculty advisor working in that space. Use the intersection table in the Research Map tab as your guide.</div>
-        <div class="step-papers">
-          <span class="step-paper-chip">Write gap analysis memo</span>
-          <span class="step-paper-chip">Reproduce 1 baseline system</span>
-          <span class="step-paper-chip">Attend OSDI/SOSP talk sessions</span>
-          <span class="step-paper-chip">Submit to HotOS workshop</span>
-        </div>
-      </div>
-    </div>
-
-  </div>
-
-  <hr class="section-divider">
-
-  <h3>Recommended Thesis Directions (Ranked by Opportunity)</h3>
   <table class="gap-table">
     <thead>
-      <tr><th>Rank</th><th>Thesis Direction</th><th>Gap Score</th><th>Difficulty</th><th>Venue Target</th></tr>
+      <tr><th>Rank</th><th>Candidate Problem Area</th><th>Motivating Gap</th><th>Gap Signal</th><th>Estimated Difficulty</th><th>Potentially Relevant Venue</th></tr>
     </thead>
     <tbody>
       <tr>
         <td><strong style="color:var(--accent-green)">1</strong></td>
         <td class="gap-area">Online Learned Concurrency Control for Distributed HTAP (I+C)</td>
+        <td style="font-size:11px;color:var(--text-secondary)">Polyjuice (OSDI '21) is the only systems-level CC paper using ML; online-learning for heterogeneous workloads is largely unexplored</td>
         <td>★★★★★</td>
         <td>High</td>
         <td>OSDI, SIGMOD</td>
@@ -3037,6 +2865,7 @@
       <tr>
         <td><strong style="color:var(--accent-green)">2</strong></td>
         <td class="gap-area">Distributed GPU Acceleration of FHE for Private LLM Inference (G+J+F)</td>
+        <td style="font-size:11px;color:var(--text-secondary)">GPU FHE provers exist (Phantom, etc.) but integration with distributed ML serving pipelines appears wide open</td>
         <td>★★★★★</td>
         <td>Very High</td>
         <td>HPCA, USENIX Sec</td>
@@ -3044,13 +2873,15 @@
       <tr>
         <td><strong style="color:var(--accent-cyan)">3</strong></td>
         <td class="gap-area">Federated RLHF with Verifiable Reward Aggregation (A+H+K)</td>
+        <td style="font-size:11px;color:var(--text-secondary)">RLHF + FL + ZKP is an underexplored combination; verifiable aggregation of reward signals across private clients has no established solution</td>
         <td>★★★★☆</td>
         <td>High</td>
         <td>MLSys, NeurIPS</td>
       </tr>
       <tr>
         <td><strong style="color:var(--accent-cyan)">4</strong></td>
-        <td class="gap-area">Systems for Reasoning Model Serving (Test-Time Compute Scaling) (J+L)</td>
+        <td class="gap-area">Systems for Reasoning Model Serving — Test-Time Compute Scaling (J+L)</td>
+        <td style="font-size:11px;color:var(--text-secondary)">Tree-search inference patterns (o1-style) break sequential KV-cache assumptions; no established systems infrastructure exists yet</td>
         <td>★★★★☆</td>
         <td>Medium</td>
         <td>OSDI, SOSP</td>
@@ -3058,6 +2889,7 @@
       <tr>
         <td><strong style="color:var(--accent-blue)">5</strong></td>
         <td class="gap-area">Efficient Federated Fine-Tuning of LLMs at Edge (A+E)</td>
+        <td style="font-size:11px;color:var(--text-secondary)">Communication-efficient fine-tuning of billion-parameter models across mobile/edge devices; FLoRA (ICML '24) opens the direction but many system-level challenges remain</td>
         <td>★★★★☆</td>
         <td>Medium</td>
         <td>MLSys, NSDI</td>
@@ -3065,17 +2897,19 @@
       <tr>
         <td><strong style="color:var(--accent-blue)">6</strong></td>
         <td class="gap-area">Multi-GPU Parallel ZK Proof Generation for Blockchain ML (G+D+B)</td>
+        <td style="font-size:11px;color:var(--text-secondary)">Distributed FHE/ZKP across GPU clusters is theoretically motivated but has no systematic systems treatment; bridges parallel computing and verifiable ML</td>
         <td>★★★★☆</td>
         <td>High</td>
-        <td>SC, IEEE S&P</td>
+        <td>SC, IEEE S&amp;P</td>
       </tr>
     </tbody>
   </table>
 </section>
 
+
 <div class="doc-footer">
-  PhD Research Navigator v1.0 · Parallel &amp; Distributed Systems 2022–2025<br>
-  Covers 12 domains · ~120 sub-areas · 80+ representative papers from OSDI, SOSP, NSDI, VLDB, SIGMOD, NeurIPS, ICML, MLSys, SC, ASPLOS, EuroSys, HPCA
+  Research Landscape Proposal · Parallel &amp; Distributed Systems 2022–2025<br>
+  12 domains · ~120 sub-areas · 80+ representative papers · Goal: 3–5 problem statements in 1–1.5 months
 </div>
 
 <script>
@@ -3085,7 +2919,11 @@
     const section = document.getElementById(id);
     if (section) { section.classList.add('active'); section.scrollIntoView({behavior:'smooth',block:'start'}); }
     const tabs = document.querySelectorAll('.nav-tab');
-    tabs.forEach(t => { if (t.textContent.includes(id) || (id==='overview' && t.textContent==='Overview') || (id==='map' && t.textContent==='Research Map') || (id==='roadmap' && t.textContent==='Reading Roadmap')) t.classList.add('active'); });
+    tabs.forEach(t => {
+      if (id === 'overview' && t.textContent.trim() === 'Overview') t.classList.add('active');
+      else if (id === 'map' && t.textContent.trim() === 'Research Map') t.classList.add('active');
+      else if (t.getAttribute('onclick') === `showSection('${id}')`) t.classList.add('active');
+    });
   }
 
   function toggleCard(card) {
